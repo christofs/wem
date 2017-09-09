@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- CUSTOMIZE THIS! -->
+<title>GISFOH 2017</title>
+<meta name="author" content="Christof Schöch">
+<!-- END -->
+<meta name="description" content="Slides">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<link rel="stylesheet" href="css/reveal.css">
+<link rel="stylesheet" href="css/theme/simple.css" id="theme">
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="lib/css/zenburn.css">
+<!-- Printing and PDF exports -->
+<script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+
+<body>
+<div class="reveal">
+<div class="slides">
+<section data-markdown="" data-separator="^\n---\n" data-separator-vertical="^\n--\n" data-charset="utf-8">
+<script type="text/template">
+
+<!-- THIS IS WHERE THE CONTENT GOES! -->
+<!-- Any section element inside of this container is displayed as a slide -->
+
+# Quantitative Approaches to Textual Semantics
+<br/>
+<hr/>
+<br/>
+Christof Schöch (Würzburg/Trier, Germany)
+<br/>
+<br/>
+9th GISFOH Symposium <br/>(September 10-13, 2017, Israel)
+<br/>
+<br/>
+<br/>
+<hr/>
+<img height="50" data-src="img/basics/UWUE.jpg"></img>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img height="80" data-src="img/basics/CLiGS.jpg"></img>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img height="50" data-src="img/basics/BMBF.jpg"></img>
+
+---
+# Overview
+<br/>
+1. [Introduction](#/2)
+2. [What Are Word Embeddings?](#/3)
+3. [Word Embeddings for Literary Studies](#/4)
+4. [Limitations of Word Embeddings](#/5)
+
+
+
+---
+# Introduction
+
+---
+# What Are Word Embeddings?
+
+--
+<img src="img/figure-1_similarity2.png" height="600px">
+
+
+--
+<img src="img/figure-2_analogy2.png" height="600px">
+
+
+---
+# Word Embeddings for Literary Studies
+
+--
+<img src="img/figure-3_tSNE-assurance.png" height="600px">
+
+--
+<img src="img/figure-4_coherence.png" height="600px">
+
+--
+<img src="img/figure-5_sentiments.png" height="600px">
+
+--
+<img src="img/figure-6_2dims_labels.png" height="600px">
+
+
+---
+# Limitations of Word Embeddings
+
+
+--
+## References
+<small>
+
+*
+
+<p><br/>With thanks to pygal and reveal.js</p>
+
+
+</small>
+
+
+---
+<br/>
+<br/>
+<br/>
+## Danke!
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<hr/>
+<p>Christof Schöch, 2017</p>
+<p><a href="https://christofs.github.io/">christofs.github.io</a></p>
+<p><a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a><br/></p>
+<hr/>
+<br/>
+<br/>
+</script>
+</section>
+
+
+
+<!-- DON'T TOUCH UNLESS YOU KNOW WHAT YOU'RE DOING :-) -->
+</div>
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+<script>
+// Full list of configuration options available at:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    transition: 'slide', // none/fade/slide/convex/concave/zoom
+    // Optional reveal.js plugins
+    dependencies: [
+        { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+        { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: 'plugin/zoom-js/zoom.js', async: true },
+        { src: 'plugin/notes/notes.js', async: true }
+        ]
+    });
+</script>
+</body>
+</html>
