@@ -40,11 +40,10 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <br/>
 <hr/>
 <br/>
-Christof Schöch (Würzburg/Trier, Germany)
+Christof Schöch<br/>(Würzburg/Trier, Germany)
 <br/>
 <br/>
-9th GISFOH Symposium <br/>(September 10-13, 2017, Israel)
-<br/>
+9th GISFOH Symposium<br/>(September 10-13, 2017, Israel)
 <br/>
 <br/>
 <hr/>
@@ -55,8 +54,10 @@ Christof Schöch (Würzburg/Trier, Germany)
 <br/>
 1. [The Digital Literary Scholar's Dream](#/2)
 2. [What Are Word Embeddings?](#/3)
-3. [Word Embeddings for Literary Studies](#/4)
-4. [A Dream Come True?](#/5)
+3. [Querying a Word Embedding Model](#/4)
+4. [Word Embeddings as Supporting Tools](#/5)
+5. [Word Embeddings for Independent Methods](#/6)
+6. [A Dream Come True?](#/7)
 
 
 
@@ -74,27 +75,21 @@ Christof Schöch (Würzburg/Trier, Germany)
 
 --
 ## Fundamentals
-
-* "You shall know a word by the company it keeps" (Firth)
-* Representation: words as vectors in vector space
-* ex.: fox(0.23,0.21,-0.98,0.01, ..., 0.12)
-
---
-## Learning algorithm: input
-
-* "red fox ... over the" (jumps?)
-* "young man ... over the" (looks?)
-* ...
+<br/>
+* "You shall know a word by the company it keeps" (Firth)<!-- .element: class="fragment" data-fragment-index="1" -->
+* Representation: words as vectors in vector space <!-- .element: class="fragment" data-fragment-index="2" -->
+* ex.: V("fox") = (0.23,0.21,-0.98,0.01, ..., 0.12) <!-- .element: class="fragment" data-fragment-index="3" -->
+* Size of the model: eg. 50k words in 300 dimensions <!-- .element: class="fragment" data-fragment-index="4" -->
 
 --
-## Output:
-
-* Each word as a vector that helps solve the above task
-* The task is unintersting, but the vector representation is useful
+## Two Models
+<br/>
+* French Wikipedia: 1.8 million articles
+* French 20th-century novel: 1200 novels
 
 
 ---
-# Querying a Word Embedding Model
+# Querying a <br/>Word Embedding Model
 
 --
 ## Similarity
@@ -104,6 +99,7 @@ Christof Schöch (Würzburg/Trier, Germany)
 --
 ## Similar Words Query
 <br/>
+(Wikipedia)
 ```
 Query:   ['poésie_nom', 10]
 Result:  poétique_adj     0.841
@@ -121,6 +117,7 @@ Result:  poétique_adj     0.841
 --
 ## Similarity Query
 <br/>
+(Wikipedia)
 ```
 Query: ['prose_nom', 'littérature_nom']
 Result: 0.511518681366
@@ -129,13 +126,34 @@ Query: ['poésie_nom', 'littérature_nom']
 Result: 0.714615326722
 ```
 
+---
+# Word Embeddings<br/>as Supporting Tools
+
+--
+## Topic Modeling
+<a href="img/wordle_tp002.png"><img src="img/wordle_tp002.png" height="600px"></a>
+
+--
+## Measure coherence of topics
+<a href="img/roman20_topic-coherences.svg"><img src="img/roman20_topic-coherences.svg" height="600px"></a>
+
+<!--
+--
+## Extend and adapt sentiment lexica
+<a href="img/figure-5_sentiments.png"><img src="img/figure-5_sentiments.png" height="600px"></a>
+-->
+
+---
+# Word Embeddings <br/>for independent methods
+
 --
 ## Axes of meaning
-<img src="img/axes-of-meaning.png" height="600px">
+<img src="img/axes-of-meaning2.png" height="600px">
 
 --
 ## Axis query
 <br/>
+(French novels)
 ```
 Axis: [["bonheur", "joie"],          # positive
        ["malheur", "tristesse"]]     # negative
@@ -147,28 +165,9 @@ Query:   monstre
 Result   -0.1407
 ```
 
-
----
-# Word Embeddings for Literary Studies
-
-
---
-## Measure coherence of topics
-<img src="img/figure-4_coherence.png" height="600px">
-
---
-## Extend and adapt sentiment lexica
-<img src="img/figure-5_sentiments.png" height="600px">
-
 --
 ## Relation of words in semantic dimensions
 <a href="img/roman20_words-2dim_nom_labels.svg"><img src="img/roman20_words-2dim_nom_labels.svg" height="600px"></a>
-
---
-## Specifically literary
-
-* Not an insight into language as such, but in specific literary genres and periods
-* When you can't use human competency as benchmark, how do we evaluate such models?
 
 
 
@@ -176,12 +175,25 @@ Result   -0.1407
 # A Dream Come True?
 
 --
-## Not quite (yet)
+## Affordances
+<br/>
+* Access to text beyond surface phenomena <!-- .element: class="fragment" data-fragment-index="1" -->
+* Supports interesting applications <!-- .element: class="fragment" data-fragment-index="2" -->
+* Huge potential for diachronic semantics / history of ideas <!-- .element: class="fragment" data-fragment-index="3" -->
 
-* From word to sentence meaning
-* From similarity to semantic content
-* From abstract meaning to meaning in context
-* Computer doesn't "understand", it just performs one of the tasks that is part of human language competency
+--
+## Challenges
+<br/>
+* Requires a lot of text <!-- .element: class="fragment" data-fragment-index="1" -->
+* Problem of evaluation <!-- .element: class="fragment" data-fragment-index="2" -->
+
+--
+## Dream? Not quite (yet)
+<br/>
+* From word to sentence meaning <!-- .element: class="fragment" data-fragment-index="1" -->
+* From similarity to semantic content <!-- .element: class="fragment" data-fragment-index="2" -->
+* From abstract meaning to meaning in context <!-- .element: class="fragment" data-fragment-index="3" -->
+* Computer doesn't "understand" text <!-- .element: class="fragment" data-fragment-index="4" -->
 
 --
 ## References
@@ -220,8 +232,18 @@ Heuser, Ryan. „Word Vectors in the Eighteenth Century“. In Digital Humanitie
 # Bonus slides
 
 --
+## CBOW Model
+<a href="img/cbow-model.png"><img src="img/cbow-model.png" height="600px"></a>
+
+--
 ## Projection
 <a href="img/tsne-plot_topn-nom-5800_some-labels.svg"><img src="img/tsne-plot_topn-nom-5800_some-labels.svg" height="600px"></a>
+
+--
+## Comparing models (novels vs. Wikipedia)
+<a href="img/figure-6_sens17.png"><img src="img/figure-6_sens17.png" height="600px"></a>
+
+
 
 
 </script>
