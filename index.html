@@ -53,67 +53,158 @@ Christof Schöch (Würzburg/Trier, Germany)
 ---
 # Overview
 <br/>
-1. [Introduction](#/2)
+1. [The Digital Literary Scholar's Dream](#/2)
 2. [What Are Word Embeddings?](#/3)
 3. [Word Embeddings for Literary Studies](#/4)
-4. [Limitations of Word Embeddings](#/5)
+4. [A Dream Come True?](#/5)
 
 
 
 ---
-# Introduction
+# The Digital Literary Scholar's Dream
+
+--
+## Computer, human, text
+<img src="img/text-human-computer.png" height="600px">
+
+
 
 ---
 # What Are Word Embeddings?
 
 --
+## Fundamentals
+
+* "You shall know a word by the company it keeps" (Firth)
+* Words: similar contexts = similar meaning
+* Representation: words as vectors in vector space
+* ex.: fox(0.23,0.21,-0.98,0.01, ..., 0.12)
+
+--
+## Learning algorithm: input
+
+* "red fox ... over the" (jumps?)
+* "young man ... over the" (looks?)
+* ...
+
+--
+## Output:
+
+* Each word as a vector that helps solve the above task
+* The task is unintersting, but the vector representation is useful
+
+
+---
+# Querying a Word Embedding Model
+
+--
+## Similarity
 <img src="img/figure-1_similarity2.png" height="600px">
 
 
 --
-<img src="img/figure-2_analogy2.png" height="600px">
+## Similar Words Query
+<br/>
+```
+Query:   ['poésie_nom', 10]
+Result:  poétique_adj     0.841
+         poème_nom        0.790
+         prose_nom        0.733
+         littérature_nom  0.715
+         poète_nom        0.704
+         poétique_nom     0.701
+         poésie_nam       0.700
+         anthologie_nom   0.695
+         littéraire_adj   0.655
+         sonnet_nom       0.651
+```
+
+--
+## Similarity Query
+<br/>
+```
+Query: ['prose_nom', 'littérature_nom']
+Result: 0.511518681366
+
+Query: ['poésie_nom', 'littérature_nom']
+Result: 0.714615326722
+```
+
+--
+## Axes of meaning
+<img src="img/axes-of-meaning.png" height="600px">
+
+--
+## Axis query
+<br/>
+```
+Axis: [["bonheur", "joie"],          # positive
+       ["malheur", "tristesse"]]     # negative
+
+Query:   ange
+Result:  0.0875
+
+Query:   monstre
+Result   -0.1407
+```
 
 
 ---
 # Word Embeddings for Literary Studies
 
---
-<img src="img/figure-3_tSNE-assurance.png" height="600px">
 
 --
+## Measure coherence of topics
 <img src="img/figure-4_coherence.png" height="600px">
 
 --
+## Extend and adapt sentiment lexica
 <img src="img/figure-5_sentiments.png" height="600px">
 
 --
-<img src="img/figure-6_2dims_labels.png" height="600px">
+## Relation of words in semantic dimensions
+<a href="img/roman20_words-2dim_nom_labels.svg"><img src="img/roman20_words-2dim_nom_labels.svg" height="600px"></a>
+
+--
+## Specifically literary
+
+* Not an insight into language as such, but in specific literary genres and periods
+* When you can't use human competency as benchmark, how do we evaluate such models?
+
 
 
 ---
-# Limitations of Word Embeddings
+# A Dream Come True?
 
+--
+## Not quite (yet)
+
+* From word to sentence meaning
+* From similarity to semantic content
+* From abstract meaning to meaning in context
+* Computer doesn't "understand", it just performs one of the tasks that is part of human language competency
 
 --
 ## References
 <small>
 
-*
+* Blei, David M. „Probabilistic Topic Models“. Communications of the ACM 55, Nr. 4 (2012): 77. doi:10.1145/2133806.2133826.
+* Goldberg, Yoav, und Omer Levy. „word2vec Explained: deriving Mikolov et al.’s negative-sampling word-embedding method“. arXiv.org, 2014. http://arxiv.org/abs/1402.3722.
+Heuser, Ryan. „Word Vectors in the Eighteenth Century“. In Digital Humanities 2017: Conference Abstracts, 256–60. Montréal: McGill University & Université de Montréal, 2017.
+* Mikolov, Tomas, Kai Chen, Greg Corrado, und Jeffrey Dean. „Efficient Estimation of Word Representations in Vector Space“. arXiv.org, 2013. http://arxiv.org/abs/1301.3781.
+* Pennington, Jeffrey, Richard Socher, und Christopher D. Manning. „Glove: Global vectors for word representation“, 2014. doi:10.1.1.671.1743.
+* Turney, Peter T., und Patrick Pantel. „From Frequency to Meaning: Vector Space Models of Semantics“. Journal of Artificial Intelligence Research 37 (2010): 141–88. https://arxiv.org/abs/1003.1141.
+* Widdows, Dominic. Geometry and meaning. CSLI lecture notes, no. 172. Stanford CA: CSLI Publications, 2004.
 
-<p><br/>With thanks to pygal and reveal.js</p>
+<p><br/>With special thanks to gensim, pygal and reveal.js</p>
 
 
 </small>
 
-
----
+--
 <br/>
 <br/>
-<br/>
-## Danke!
-<br/>
-<br/>
-<br/>
+## Thank you!
 <br/>
 <br/>
 <br/>
@@ -125,6 +216,15 @@ Christof Schöch (Würzburg/Trier, Germany)
 <hr/>
 <br/>
 <br/>
+
+---
+# Bonus slides
+
+--
+## Projection
+<a href="img/tsne-plot_topn-nom-5800_some-labels.svg"><img src="img/tsne-plot_topn-nom-5800_some-labels.svg" height="600px"></a>
+
+
 </script>
 </section>
 
