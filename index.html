@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- CUSTOMIZE THIS! -->
-<title>GISFOH 2017</title>
+<title>Embedded Humanities</title>
 <meta name="author" content="Christof Schöch">
 <!-- END -->
 <meta name="description" content="Slides">
@@ -36,60 +36,50 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <!-- THIS IS WHERE THE CONTENT GOES! -->
 <!-- Any section element inside of this container is displayed as a slide -->
 
-# Quantitative Approaches to Textual Semantics
+# Using Word Embeddings to Support Methods of Quantitative Text Analysis
+<hr/>
+<br/>
+Christof Schöch<br/>(Trier, Germany)
+<br/>
 <br/>
 <hr/>
 <br/>
-Christof Schöch<br/>(Würzburg/Trier, Germany)
+Embedded Humanities Workshop<br/>(DARIAH TDA Working Group)<br/>DHd Conference, Cologne, February 2018
 <br/>
 <br/>
-9th GISFOH Symposium<br/>(September 10-13, 2017, Israel)
-<br/>
-<br/>
-<hr/>
-<img height="50" data-src="img/basics/UWUE.jpg"></img>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img height="80" data-src="img/basics/CLiGS.jpg"></img>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img height="50" data-src="img/basics/BMBF.jpg"></img>
 
 ---
 # Overview
 <br/>
-1. [The Digital Literary Scholar's Dream](#/2)
-2. [What Are Word Embeddings?](#/3)
-3. [Querying a Word Embedding Model](#/4)
-4. [Word Embeddings as Supporting Tools](#/5)
-5. [Word Embeddings for Independent Methods](#/6)
-6. [A Dream Come True?](#/7)
+1. [Introduction](#/2)
+2. [Word Embeddings and Topic Coherence](#/3)
+3. [Word Embeddings for Sentiment Analysis](#/4)
+4. [Conclusion](#/5)
 
 
 
 ---
-# The Digital Literary Scholar's Dream
+# Introduction
+
 
 --
-## Computer, human, text
-<img src="img/text-human-computer.png" height="600px">
-
-
-
----
-# What Are Word Embeddings?
-
---
-## Fundamentals
+## Basic idea
 <br/>
-* "You shall know a word by the company it keeps" (Firth)<!-- .element: class="fragment" data-fragment-index="1" -->
-* Representation: words as vectors in vector space <!-- .element: class="fragment" data-fragment-index="2" -->
-* ex.: V("fox") = (0.23,0.21,-0.98,0.01, ..., 0.12) <!-- .element: class="fragment" data-fragment-index="3" -->
-* Size of the model: eg. 50k words in 300 dimensions <!-- .element: class="fragment" data-fragment-index="4" -->
+* Word Embedding Models are cool!  <!-- .element: class="fragment" data-fragment-index="1" -->
+* How can they be useful for in Digital Humanities? <!-- .element: class="fragment" data-fragment-index="2" -->
+* More precisely: how can they be helpful <br/>for other exciting digital methods? <!-- .element: class="fragment" data-fragment-index="3" -->
+* Here: Topic Modeling and Sentiment Analysis <!-- .element: class="fragment" data-fragment-index="4" -->
 
 --
 ## Two Models
 <br/>
-* French Wikipedia: 1.8 million articles
-* French 20th-century novel: 1200 novels
-
-
----
-# Querying a <br/>Word Embedding Model
+* French Wikipedia <!-- .element: class="fragment" data-fragment-index="1" -->
+    * 1.8 million articles, 750 million words
+    * skip-gram model, 300 dimensions 
+* French 20th-century novel <!-- .element: class="fragment" data-fragment-index="2" -->
+    * 1200 novels, 75 million words
+    * skip-gram model, 300 dimensions
+    * tokens: "lemma_pos"
 
 --
 ## Similarity
@@ -126,29 +116,91 @@ Query: ['poésie_nom', 'littérature_nom']
 Result: 0.714615326722
 ```
 
+--
+## Evaluation
+<br/>
+* Method: Using a "find-the-wrong word"-task <!-- .element: class="fragment" data-fragment-index="1" -->
+* Lists of similar words: <!-- .element: class="fragment" data-fragment-index="2" -->
+    * vert, bleu, jaune, rouge, orange
+    * argent, billet, monnaie, portemonnaie, payement
+* Generate lists with an error <!-- .element: class="fragment" data-fragment-index="3" -->
+    * vert, bleu, argent, jaune, rouge  
+
+--
+## Results: accuracy
+<br/>
+* Wikipedia model: 90% accuracy
+* French novel model: 79.5% accuracy
+
+
 ---
-# Word Embeddings<br/>as Supporting Tools
+# Word Embeddings<br/>for Topic Modeling
 
 --
 ## Topic Modeling
 <a href="img/wordle_tp002.png"><img src="img/wordle_tp002.png" height="600px"></a>
 
 --
-## Measure coherence of topics
+## Coherence Assessment: Mallet Diagnostics
+<img src="img/mallet.png" height="600px">
+--
+## Coherence Assessment: Palmetto
+<img src="img/palmetto.png" height="600px">
+
+--
+## Challenges
+<br/>
+* Mallet diagnostics are only intrinsic to the data
+* Palmetto requires you to build an adequate index
+
+--
+## WEM-based coherence measure
 <a href="img/roman20_topic-coherences.svg"><img src="img/roman20_topic-coherences.svg" height="600px"></a>
 
-<!--
+
 --
-## Extend and adapt sentiment lexica
-<a href="img/figure-5_sentiments.png"><img src="img/figure-5_sentiments.png" height="600px"></a>
--->
+## Evaluation
+<br/>
+Correlation between WEM-based<br/> coherence and Mallet diagnostics<br/>
+(Pearson's R, p-value)
+<br/>
+<br/>
+* mtuniformdist, 0.536, 9.22e-09
+* mtcoherence, -0.004, 0.970
+* mtexclusivity, 0.117, 0.246
+<br/>
+<br/>http://mallet.cs.umass.edu/diagnostics.php
 
 ---
-# Word Embeddings <br/>for independent methods
+# Word Embeddings<br/>for Sentiment Analysis
+
+--
+## Challenges 
+<br/>
+* An important branch of Sentiment Analysis<br/>requires an Emotion Lexicon <!-- .element: class="fragment" data-fragment-index="1" --> 
+* These lexica usually have poor coverage<br/>(e.g. NRC: 14k words) <!-- .element: class="fragment" data-fragment-index="2" -->
+* Many of them also only provide ternary information<br/>(positive, negative, neutral) <!-- .element: class="fragment" data-fragment-index="3" -->
+* Combining WEM and Emotion Lexica could<br/> improve both resources <!-- .element: class="fragment" data-fragment-index="4" -->
+
+
+--
+## Axes of meaning (Ryan Heuser)
+<img src="img/fig-abstract-1.jpg" height="500px">
+<br/>
+(concrete vs. abstract)
+
+
+--
+## Axes of meaning (Ryan Heuser)
+<img src="img/fig-abstract-2.jpg" height="500px">
+<br/>
+(correlation with contemporary annotated data)
+
 
 --
 ## Axes of meaning
 <img src="img/axes-of-meaning2.png" height="600px">
+
 
 --
 ## Axis query
@@ -170,33 +222,70 @@ Result   -0.1407
 <a href="img/roman20_words-2dim_nom_labels.svg"><img src="img/roman20_words-2dim_nom_labels.svg" height="600px"></a>
 
 
+--
+## Extend and adapt sentiment lexica
+<a href="img/figure-5_sentiments.png"><img src="img/figure-5_sentiments.png" height="600px"></a>
+
+
+--
+## Workflow
+<br/>
+* Retrieve 2000 most frequent nouns from WEM <!-- .element: class="fragment" data-fragment-index="1" -->
+* Query SentiWordNet for the sentiment scores <!-- .element: class="fragment" data-fragment-index="2" -->
+* 158 out of 2000 (or 7.9%) don't have a score <!-- .element: class="fragment" data-fragment-index="3" -->
+* Retrieve the word vectors for each of the nouns <!-- .element: class="fragment" data-fragment-index="4" -->
+* Use the 1842 nouns which have both a vector<br/> and a SWN score as training data <!-- .element: class="fragment" data-fragment-index="5" -->
+* Use a regression task to predict SWN scores<br/> for the 158 words <!-- .element: class="fragment" data-fragment-index="6" --> 
+
+--
+## Newly-predicted (positive)
+<br/>
+* mérite	0.224
+* ange	0.191
+* aise	0.168
+* sérieux	0.168
+* merci	0.163
+* savant	0.162
+* parler	0.157
+* seul	0.152
+* remplacé 0.150
+* envie	0.141
+* rire	0.137
+
+--
+## Newly-predicted (negative)
+<br/>
+* fracas	0.294
+* injure	0.292
+* coupable	0.221
+* vertige	0.211
+* cesse	0.203
+* tel	0.180
+* blessé	0.157
+* suite	0.156
+* merci	0.153
+* mélange	0.149
+* envie	0.146
+
+
+--
+## Evaluation
+<br/>
+* Correlation between existing scores and <br/>the prediction for these same scores: 0.59
 
 ---
-# A Dream Come True?
-
---
-## Affordances
+# Conclusion
 <br/>
-* Access to text beyond surface phenomena <!-- .element: class="fragment" data-fragment-index="1" -->
-* Supports interesting applications <!-- .element: class="fragment" data-fragment-index="2" -->
-* Huge potential for diachronic semantics / history of ideas <!-- .element: class="fragment" data-fragment-index="3" -->
+* (Hopefully) some promising perspectives
+* A lot more to do; suggestions for improvements?
 
---
-## Challenges
-<br/>
-* Requires a lot of text <!-- .element: class="fragment" data-fragment-index="1" -->
-* Problem of evaluation <!-- .element: class="fragment" data-fragment-index="2" -->
 
---
-## Dream? Not quite (yet)
-<br/>
-* From word to sentence meaning <!-- .element: class="fragment" data-fragment-index="1" -->
-* From similarity to semantic content <!-- .element: class="fragment" data-fragment-index="2" -->
-* From abstract meaning to meaning in context <!-- .element: class="fragment" data-fragment-index="3" -->
-* Computer doesn't "understand" text <!-- .element: class="fragment" data-fragment-index="4" -->
 
 --
 ## References
+<br/>Thank you! 
+<br/>
+
 <small>
 
 * Blei, David M. „Probabilistic Topic Models“. Communications of the ACM 55, Nr. 4 (2012): 77. doi:10.1145/2133806.2133826.
@@ -261,6 +350,7 @@ Heuser, Ryan. „Word Vectors in the Eighteenth Century“. In Digital Humanitie
 Reveal.initialize({
     controls: true,
     progress: true,
+    slideNumber: true,
     history: true,
     center: true,
     transition: 'slide', // none/fade/slide/convex/concave/zoom
