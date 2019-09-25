@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- CUSTOMIZE THIS! -->
-<title>Embedded Humanities</title>
+<title>Repeating and Repeatable, Budapest 2019</title>
 <meta name="author" content="Christof Schöch">
 <!-- END -->
 <meta name="description" content="Slides">
@@ -30,278 +30,200 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <body>
 <div class="reveal">
 <div class="slides">
-<section data-markdown="" data-separator="^\n---\n" data-separator-vertical="^\n--\n" data-charset="utf-8">
+<section data-markdown="" data-separator="^\n---\n" data-separator-vertical="^\n--\n" data-charset="utf-8" data-background-image="img/basics/uni-trier-icon.png" data-background-size="50px" data-background-position="top 10px right 10px">
 <script type="text/template">
 
 <!-- THIS IS WHERE THE CONTENT GOES! -->
 <!-- Any section element inside of this container is displayed as a slide -->
 
-# Using Word Embeddings to Support Methods of Quantitative Text Analysis
-<hr/>
-<br/>
-Christof Schöch<br/>(Trier, Germany)
-<br/>
+##Repeating and Repeatable, or: Distant Reading between Past and Future
 <br/>
 <hr/>
 <br/>
-Embedded Humanities Workshop<br/>(DARIAH TDA Working Group)<br/>DHd Conference, Cologne, February 2018
+Christof Schöch (Trier)
+<br/>https://christof-schoech.de/en/
 <br/>
 <br/>
+**DH_Budapest 2019: "Distant Reading"**
+**Budapest, Sept. 27, 2019**
+<br/>
+<hr/>
+<br/>
+<img height="50" data-src="img/basics/uni-trier.png"></img>
+
 
 ---
-# Overview
+## Repeating and Repeatable: Distant Reading between Past and Future
 <br/>
 1. [Introduction](#/2)
-2. [Word Embeddings and Topic Coherence](#/3)
-3. [Word Embeddings for Sentiment Analysis](#/4)
-4. [Conclusion](#/5)
-
-
-
----
-# Introduction
-
-
---
-## Basic idea
-<br/>
-* Word Embedding Models are cool!  <!-- .element: class="fragment" data-fragment-index="1" -->
-* How can they be useful for in Digital Humanities? <!-- .element: class="fragment" data-fragment-index="2" -->
-* More precisely: how can they be helpful <br/>for other exciting digital methods? <!-- .element: class="fragment" data-fragment-index="3" -->
-* Here: Topic Modeling and Sentiment Analysis <!-- .element: class="fragment" data-fragment-index="4" -->
-
---
-## Two Models
-<br/>
-* French Wikipedia <!-- .element: class="fragment" data-fragment-index="1" -->
-    * 1.8 million articles, 750 million words
-    * skip-gram model, 300 dimensions 
-* French 20th-century novel <!-- .element: class="fragment" data-fragment-index="2" -->
-    * 1200 novels, 75 million words
-    * skip-gram model, 300 dimensions
-    * tokens: "lemma_pos"
-
---
-## Similarity
-<img src="img/figure-1_similarity2.png" height="600px">
-
-
---
-## Similar Words Query
-<br/>
-(Wikipedia)
-```
-Query:   ['poésie_nom', 10]
-Result:  poétique_adj     0.841
-         poème_nom        0.790
-         prose_nom        0.733
-         littérature_nom  0.715
-         poète_nom        0.704
-         poétique_nom     0.701
-         poésie_nam       0.700
-         anthologie_nom   0.695
-         littéraire_adj   0.655
-         sonnet_nom       0.651
-```
-
---
-## Similarity Query
-<br/>
-(Wikipedia)
-```
-Query: ['prose_nom', 'littérature_nom']
-Result: 0.511518681366
-
-Query: ['poésie_nom', 'littérature_nom']
-Result: 0.714615326722
-```
-
---
-## Evaluation
-<br/>
-* Method: Using a "find-the-wrong word"-task <!-- .element: class="fragment" data-fragment-index="1" -->
-* Lists of similar words: <!-- .element: class="fragment" data-fragment-index="2" -->
-    * vert, bleu, jaune, rouge, orange
-    * argent, billet, monnaie, portemonnaie, payement
-* Generate lists with an error <!-- .element: class="fragment" data-fragment-index="3" -->
-    * vert, bleu, argent, jaune, rouge  
-
---
-## Results: accuracy
-<br/>
-* Wikipedia model: 90% accuracy
-* French novel model: 79.5% accuracy
+	1. [Motivation](#/2/1)
+	1. [Typology](#/2/5)
+2. [Case studies](#/3)
+    1. [Thomas C. Mendenhall](#/3/1)
+    1. [François Richaudeau](#/3/6)
+    1. [Leo Spitzer](#/3/8)
+3. [Conclusions](#/4)
 
 
 ---
-# Word Embeddings<br/>for Topic Modeling
+<br/>
+<br/>
+# 1. Introduction
+
 
 --
-## Topic Modeling
-<a href="img/wordle_tp002.png"><img src="img/wordle_tp002.png" height="600px"></a>
+<br/>
+<br/>
+## 1.1 Motivation
 
 --
-## Coherence Assessment: Mallet Diagnostics
-<img src="img/mallet.png" height="600px">
+<a href="img/chainsaw-flowers.png"><img src="img/chainsaw-flowers.png" height="550"/></a>
+<p>Can literary texts usefully be analyzed using computers?</p>
+
 --
-## Coherence Assessment: Palmetto
-<img src="img/palmetto.png" height="600px">
+<a href="img/replication_scientific-american.png"><img src="img/replication_scientific-american.png" height="550"/></a>
+<p>See: Open Science Foundation, Reproducibility Project, https://osf.io/ezcuj</p>
+
+--
+<a href="img/da_title.png"><img src="img/da_title.png" height="500"/></a>
+<p>Nan Z. Da (2019) in _Critical Inquiry_</p>
+
+
+--
+<br/>
+<br/>
+## 1.2 Typology
+
+--
+<a href="img/typology2.png"><img src="img/typology2.png" height="550"/></a>
+<p>Typology of repeating and repeatable research</p>
+
+---
+<br/>
+<br/>
+# 2. Case Studies
+
+--
+<br/>
+<br/>
+## Mendenhall (1887)<br/>repeated by<br/>Rockwell and Sinclair (2016)
+
+--
+<a href="img/epistemologica_mendenhall-oliver-twist.png"><img src="img/epistemologica_mendenhall-oliver-twist.png" height="550"/></a>
+<p>Mendenhall (1887): Oliver Twist (1000 words)</p>
+
+--
+<a href="img/epistemologica_twist-1000.png"><img src="img/epistemologica_twist-1000.png" height="550"/></a>
+<p>Sinclair and Rockwell: Oliver Twist (1000 words)</p>
+
+--
+<a href="img/epistemologica_twist-full.png"><img src="img/epistemologica_twist-full.png" height="550"/></a>
+<p>Mendenhall: Oliver Twist (full novel)</p>
+
+--
+<a href="img/epistemologica_jupyter-notebook.png"><img src="img/epistemologica_jupyter-notebook.png" height="550"/></a>
+<p>Jupyter Notebook: https://github.com/sgsinclair/epistemologica</p>
+
+
+
+--
+<br/>
+<br/>
+## Richaudeau (1982)<br/>repeated by<br/>myself (2016)
+
+
+--
+<a href="img/richaudeau_title.png"><img src="img/richaudeau_title.png" height="550"/></a>
+<p>Richeaudeau on sentence length in Simenon (1982)</p>
+
+--
+<a href="img/richeaudeau_table-des-25.png"><img src="img/richeaudeau_table-des-25.png" height="550"/></a>
+<p>Richaudeau on Georges Simenon</p>
+
+--
+<a href="img/sentlen-simenon_25.svg"><img src="img/sentlen-simenon_25.svg" height="550"/></a>
+<p>Repetition: same 25 texts by Simenon</p>
+
+--
+<a href="img/sentlen-simenon_127.svg"><img src="img/sentlen-simenon_127.svg" height="550"/></a>
+<p>Repetition: 127 texts by Simenon</p>
+
+--
+<a href="img/sentlen-romans_101+500.svg"><img src="img/sentlen-romans_101+500.svg" height="550"/></a>
+<p>Repetition: Simenon's novels and 500 contemporary novels</p>
+
+
+
+
+--
+<br/>
+<br/>
+## Leo Spitzer (1928)<br/>repeated by<br/>myself (2017)
+
+
+--
+<a href="img/spitzer_entgrenzendes-où-168.png"><img src="img/spitzer_entgrenzendes-où-168.png" height="350"/></a>
+>Spitzer (1928): "The border-erasing 'where' has the same effect of effacing contours and occurs particularly with abstract nouns, for which one cannot easily imagine a location, or an enclosed space, into which the 'where' is meant to point."
+
+--
+<a href="img/spitzer_txm-query.png"><img src="img/spitzer_txm-query.png" height="550"/></a>
+<p>The relative pronooun où following abstract nouns, in TXM</p>
+
+--
+<a href="img/spitzer_signifikanz.svg"><img src="img/spitzer_signifikanz.svg" height="550"/></a>
+<p>Racine compared to contemporary authors of tragedies</p>
+
+
+---
+<br/>
+<br/>
+# 3. Conclusions
+
 
 --
 ## Challenges
 <br/>
-* Mallet diagnostics are only intrinsic to the data
-* Palmetto requires you to build an adequate index
-
---
-## WEM-based coherence measure
-<a href="img/roman20_topic-coherences.svg"><img src="img/roman20_topic-coherences.svg" height="600px"></a>
+* Potential conflict with disciplinary values <!-- .element: class="fragment" data-fragment-index="1" -->
+* Lack of relevant, available data <!-- .element: class="fragment" data-fragment-index="2" -->
+* Level of faithfulness and deviation <!-- .element: class="fragment" data-fragment-index="3" -->
 
 
 --
-## Evaluation
+## Benefits
 <br/>
-Correlation between WEM-based<br/> coherence and Mallet diagnostics<br/>
-(Pearson's R, p-value)
-<br/>
-<br/>
-* mtuniformdist, 0.536, 9.22e-09
-* mtcoherence, -0.004, 0.970
-* mtexclusivity, 0.117, 0.246
-<br/>
-<br/>http://mallet.cs.umass.edu/diagnostics.php
-
----
-# Word Embeddings<br/>for Sentiment Analysis
-
---
-## Challenges 
-<br/>
-* An important branch of Sentiment Analysis<br/>requires an Emotion Lexicon <!-- .element: class="fragment" data-fragment-index="1" --> 
-* These lexica usually have poor coverage<br/>(e.g. NRC: 14k words) <!-- .element: class="fragment" data-fragment-index="2" -->
-* Many of them also only provide ternary information<br/>(positive, negative, neutral) <!-- .element: class="fragment" data-fragment-index="3" -->
-* Combining WEM and Emotion Lexica could<br/> improve both resources <!-- .element: class="fragment" data-fragment-index="4" -->
+* Foster a better understanding of earlier and your own research <!-- .element: class="fragment" data-fragment-index="1" -->
+* Ensure the diachronic, disciplinary continuity in Digital Literary Studies <!-- .element: class="fragment" data-fragment-index="2" -->
+* Enable systematic progress in methods of analysis <!-- .element: class="fragment" data-fragment-index="3" -->
 
 
 --
-## Axes of meaning (Ryan Heuser)
-<img src="img/fig-abstract-1.jpg" height="500px">
+## Agenda
 <br/>
-(concrete vs. abstract)
-
-
---
-## Axes of meaning (Ryan Heuser)
-<img src="img/fig-abstract-2.jpg" height="500px">
-<br/>
-(correlation with contemporary annotated data)
-
-
---
-## Axes of meaning
-<img src="img/axes-of-meaning2.png" height="600px">
-
-
---
-## Axis query
-<br/>
-(French novels)
-```
-Axis: [["bonheur", "joie"],          # positive
-       ["malheur", "tristesse"]]     # negative
-
-Query:   ange
-Result:  0.0875
-
-Query:   monstre
-Result   -0.1407
-```
-
---
-## Relation of words in semantic dimensions
-<a href="img/roman20_words-2dim_nom_labels.svg"><img src="img/roman20_words-2dim_nom_labels.svg" height="600px"></a>
-
-
---
-## Extend and adapt sentiment lexica
-<a href="img/figure-5_sentiments.png"><img src="img/figure-5_sentiments.png" height="600px"></a>
-
-
---
-## Workflow
-<br/>
-* Retrieve 2000 most frequent nouns from WEM <!-- .element: class="fragment" data-fragment-index="1" -->
-* Query SentiWordNet for the sentiment scores <!-- .element: class="fragment" data-fragment-index="2" -->
-* 158 out of 2000 (or 7.9%) don't have a score <!-- .element: class="fragment" data-fragment-index="3" -->
-* Retrieve the word vectors for each of the nouns <!-- .element: class="fragment" data-fragment-index="4" -->
-* Use the 1842 nouns which have both a vector<br/> and a SWN score as training data <!-- .element: class="fragment" data-fragment-index="5" -->
-* Use a regression task to predict SWN scores<br/> for the 158 words <!-- .element: class="fragment" data-fragment-index="6" --> 
-
---
-## Newly-predicted (positive)
-<br/>
-* mérite	0.224
-* ange	0.191
-* aise	0.168
-* sérieux	0.168
-* merci	0.163
-* savant	0.162
-* parler	0.157
-* seul	0.152
-* remplacé 0.150
-* envie	0.141
-* rire	0.137
-
---
-## Newly-predicted (negative)
-<br/>
-* fracas	0.294
-* injure	0.292
-* coupable	0.221
-* vertige	0.211
-* cesse	0.203
-* tel	0.180
-* blessé	0.157
-* suite	0.156
-* merci	0.153
-* mélange	0.149
-* envie	0.146
-
-
---
-## Evaluation
-<br/>
-* Correlation between existing scores and <br/>the prediction for these same scores: 0.59
-
----
-# Conclusion
-<br/>
-* (Hopefully) some promising perspectives
-* A lot more to do; suggestions for improvements?
-
+* Refer to relevant earlier work not just through citation, but through repetition <!-- .element: class="fragment" data-fragment-index="1" -->
+* Make data and code available and understandable as a matter of principle <!-- .element: class="fragment" data-fragment-index="2" -->
+* Enable not only replication, but multiple modes of reuse <!-- .element: class="fragment" data-fragment-index="3" -->
 
 
 --
 ## References
-<br/>Thank you! 
-<br/>
-
 <small>
 
-* Blei, David M. „Probabilistic Topic Models“. Communications of the ACM 55, Nr. 4 (2012): 77. doi:10.1145/2133806.2133826.
-* Goldberg, Yoav, und Omer Levy. „word2vec Explained: deriving Mikolov et al.’s negative-sampling word-embedding method“. arXiv.org, 2014. http://arxiv.org/abs/1402.3722.
-Heuser, Ryan. „Word Vectors in the Eighteenth Century“. In Digital Humanities 2017: Conference Abstracts, 256–60. Montréal: McGill University & Université de Montréal, 2017.
-* Mikolov, Tomas, Kai Chen, Greg Corrado, und Jeffrey Dean. „Efficient Estimation of Word Representations in Vector Space“. arXiv.org, 2013. http://arxiv.org/abs/1301.3781.
-* Pennington, Jeffrey, Richard Socher, und Christopher D. Manning. „Glove: Global vectors for word representation“, 2014. doi:10.1.1.671.1743.
-* Turney, Peter T., und Patrick Pantel. „From Frequency to Meaning: Vector Space Models of Semantics“. Journal of Artificial Intelligence Research 37 (2010): 141–88. https://arxiv.org/abs/1003.1141.
-* Widdows, Dominic. Geometry and meaning. CSLI lecture notes, no. 172. Stanford CA: CSLI Publications, 2004.
+* Spitzer, Leo. 1928. "Die klassische Dämpfung in Racines Stil". _Archivum romanicum_ 12: 361–472.
+* Mendenhall, Thomas C. 1887. "The Characteristic Curves of Composition". _Science_ ns-9 (214S): 237–46. https://doi.org/10.1126/science.ns-9.214S.237.
+* Rockwell, Geoffrey. 2016. "Replication as a Way of Knowing in the Digital Humanities". In: _Lectures in Digital Humanities_. Würzburg.
+* Lincoln, Matthew. 2016. "Social Network Centralization Dynamics in Print Production in the Low Countries, 1550-1750", _International Journal for Digital Art History_ 2.2, 134-157. 
+* Sinclair, Stéfan and Geoffrey Rockwell. ongoing. "Epistemologica". https://github.com/sgsinclair/epistemologica
+* Richaudeau, François. 1982. "Simenon : une écriture pas si simple qu’on le penserait". _Communication & Langages_ 53.1: 11–32. https://doi.org/10.3406/colan.1982.1484.
+* Center for Open Science (coord.). 2012-2018. _Reproducibility Project: Psychology_. Open Science Foundation, https://osf.io/ezcuj/. 
 
-<p><br/>With special thanks to gensim, pygal and reveal.js</p>
+<p><br/>With thanks to pygal and reveal.js</p>
 
 
 </small>
 
---
+
+---
+<br/>
 <br/>
 <br/>
 ## Thank you!
@@ -309,32 +231,16 @@ Heuser, Ryan. „Word Vectors in the Eighteenth Century“. In Digital Humanitie
 <br/>
 <br/>
 <br/>
+<br/>
+<br/>
+<br/>
 <hr/>
-<p>Christof Schöch, 2017</p>
-<p><a href="https://christofs.github.io/">christofs.github.io</a></p>
-<p><a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a><br/></p>
+Christof Schöch, 2019
+<br/><a href="https://christofs.github.io/">christofs.github.io</a>
+<br/><a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a>
 <hr/>
 <br/>
 <br/>
-
----
-# Bonus slides
-
---
-## CBOW Model
-<a href="img/cbow-model.png"><img src="img/cbow-model.png" height="600px"></a>
-
---
-## Projection
-<a href="img/tsne-plot_topn-nom-5800_some-labels.svg"><img src="img/tsne-plot_topn-nom-5800_some-labels.svg" height="600px"></a>
-
---
-## Comparing models (novels vs. Wikipedia)
-<a href="img/figure-6_sens17.png"><img src="img/figure-6_sens17.png" height="600px"></a>
-
-
-
-
 </script>
 </section>
 
@@ -350,7 +256,6 @@ Heuser, Ryan. „Word Vectors in the Eighteenth Century“. In Digital Humanitie
 Reveal.initialize({
     controls: true,
     progress: true,
-    slideNumber: true,
     history: true,
     center: true,
     transition: 'slide', // none/fade/slide/convex/concave/zoom
