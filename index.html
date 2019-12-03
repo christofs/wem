@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- CUSTOMIZE THIS! -->
-<title>Embedded Humanities</title>
+<title>Word Embeddings</title>
 <meta name="author" content="Christof Schöch">
 <!-- END -->
 <meta name="description" content="Slides">
@@ -30,13 +30,13 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <body>
 <div class="reveal">
 <div class="slides">
-<section data-markdown="" data-separator="^\n---\n" data-separator-vertical="^\n--\n" data-charset="utf-8">
+<section data-markdown="" data-separator="^\n--\n" data-separator-vertical="^\n---\n" data-charset="utf-8" data-background-image="img/basics/uni-trier-mini.jpg" data-background-size="50px" data-background-position="top right">
 <script type="text/template">
 
 <!-- THIS IS WHERE THE CONTENT GOES! -->
 <!-- Any section element inside of this container is displayed as a slide -->
 
-# Using Word Embeddings to Support Methods of Quantitative Text Analysis
+## Of the Use and Abuse of Word Embeddings in Digital Humanities
 <hr/>
 <br/>
 Christof Schöch<br/>(Trier, Germany)
@@ -44,121 +44,285 @@ Christof Schöch<br/>(Trier, Germany)
 <br/>
 <hr/>
 <br/>
-Embedded Humanities Workshop<br/>(DARIAH TDA Working Group)<br/>DHd Conference, Cologne, February 2018
+Digital History and Hermeneutics Lecture Series, University of Luxemburg, December 4, 2019
 <br/>
 <br/>
+<img height="55" data-src="img/basics/tcdh-slim.png">&nbsp;&nbsp;&nbsp;<img height="55" data-src="img/basics/uni-trier.png">
 
----
+
+--
 # Overview
 <br/>
 1. [Introduction](#/2)
-2. [Word Embeddings and Topic Coherence](#/3)
-3. [Word Embeddings for Sentiment Analysis](#/4)
-4. [Conclusion](#/5)
+1. [What are Word Embedding Models?](#/3)
+1. [How do you create a Word Embedding Model?](#/4)
+2. [Word Embeddings and Topic Coherence](#/5)
+3. [Word Embeddings for Sentiment Analysis](#/6)
+4. [Conclusion](#/7)
 
 
 
----
+--
+<br/>
 # Introduction
 
 
---
+---
 ## Basic idea
 <br/>
-* Word Embedding Models are cool!  <!-- .element: class="fragment" data-fragment-index="1" -->
-* How can they be useful for in Digital Humanities? <!-- .element: class="fragment" data-fragment-index="2" -->
-* More precisely: how can they be helpful <br/>for other exciting digital methods? <!-- .element: class="fragment" data-fragment-index="3" -->
-* Here: Topic Modeling and Sentiment Analysis <!-- .element: class="fragment" data-fragment-index="4" -->
+* Word Embedding Models are cool, but... <br/><br/> <!-- .element: class="fragment" data-fragment-index="1" -->
+* How do they actually work? <!-- .element: class="fragment" data-fragment-index="2" -->
+* How can they be useful in Digital Humanities? <!-- .element: class="fragment" data-fragment-index="3" -->
+    * Integrated with other digital methods <!-- .element: class="fragment" data-fragment-index="4" -->
+    * And in their own right <!-- .element: class="fragment" data-fragment-index="5" -->
+* And how far are they taking us to understanding text? <!-- .element: class="fragment" data-fragment-index="6" -->
+
 
 --
+<br/>
+# What are Word Embedding Models?
+
+---
+## Intuition about distributional semantics
+<br/>
+* "Her friend's ...... was located on the second floor of the house." 
+<br/><br/>
+* "apartment" ! <!-- .element: class="fragment" data-fragment-index="1" -->
+* "room" ! <!-- .element: class="fragment" data-fragment-index="2" -->
+* "balcony" ? <!-- .element: class="fragment" data-fragment-index="3" -->
+* "cat" ?? <!-- .element: class="fragment" data-fragment-index="4" -->
+* "shark" ??? <!-- .element: class="fragment" data-fragment-index="5" -->
+* "comfortable" ???? <!-- .element: class="fragment" data-fragment-index="6" -->
+
+
+---
+## What does this example tell us?
+<br/>
+* The words fit more or less, syntactically and semantically <!-- .element: class="fragment" data-fragment-index="1" -->
+* We are able to rank the likelihood of these words in the given context <!-- .element: class="fragment" data-fragment-index="2" -->
+* We use world knowledge, but also linguistic competency, for this <!-- .element: class="fragment" data-fragment-index="3" -->
+* Computers can learn this too, based on cooccurrence patterns <!-- .element: class="fragment" data-fragment-index="4" -->
+* That's how distributional semantics works! <!-- .element: class="fragment" data-fragment-index="5" -->
+
+
+---
+## Distributional Semantics
+<br/>
+>"You shall know a word by the company it keeps" (Firth)
+
+* Words that occur in similar contexts have similar meaning <!-- .element: class="fragment" data-fragment-index="1" -->
+* Words that frequently co-occur are semantically related <!-- .element: class="fragment" data-fragment-index="2" -->
+* Words that appear in very similar, specific contexts have similar grammatical functions <!-- .element: class="fragment" data-fragment-index="3" -->
+
+
+---
+## Information Retrieval: Vector Space Model
+<br/>
+* Each document has a certain place in a vector space <!-- .element: class="fragment" data-fragment-index="1" -->
+* That place is determined by the keywords that appear in the document <!-- .element: class="fragment" data-fragment-index="2" -->
+* Each word is a dimension in the vector space <!-- .element: class="fragment" data-fragment-index="3" -->
+* Documents with shared vocabulary end up in the same area of the vector space <!-- .element: class="fragment" data-fragment-index="4" -->
+
+---
+## Information Retrieval: Vector Space Model
+<img src="img/vectorspace.jpg" height="550px">
+<br/>
+<small>(Originally: Gerald Salton et al. (1975). Image Credit: Riclas, Wikipedia, [Creative Commons Atttribution 3.0](https://commons.wikimedia.org/w/index.php?curid=9076846))</small>
+
+
+---
+## "Geometry and Meaning"
+<br/>
+* or: Word semantics in vector space
+* Each word is assigned a vector
+* Closeness denotes semantic similarity
+* Relations are expressed by directionality
+<p><img src="img/widdows.jpg" height="250px"></p>
+
+
+---
+## Closeness ~ similarity
+<img height="500" data-src="img/fruit-vegs.png">
+<small>
+(Artificial data. Image credit: Christof Schöch, 2019, [CC BY 4.0 Int'l](https://creativecommons.org/licenses/by/4.0/))
+</small>
+
+---
+## Distance ~ dissimilarity
+<img height="500" data-src="img/polarity.png">
+<small>
+(Artificial data. Image credit: Christof Schöch, 2019, [CC BY 4.0 Int'l](https://creativecommons.org/licenses/by/4.0/))
+</small>
+
+---
+## Directionality ~ relations
+<img height="500" data-src="img/analogy.png">
+<small>
+(Artificial data. Image credit: Christof Schöch, 2019, [CC BY 4.0 Int'l](https://creativecommons.org/licenses/by/4.0/))
+</small>
+
+
+
+
+--
+<br/>
+# How do you create a Word Embedding Model?
+
+---
+## Large amounts of text
+<br/>
+* A very large newstext archive 
+* All of Wikipedia
+* All of reddit
+
+
+---
+## Model Training Architecture
+<a href="img/cbow.png"><img height="500" data-src="img/cbow.png"></a>
+<small>
+(CBOW architecture. Image credit: Christof Schöch, 2019, [CC BY 4.0 Int'l](https://creativecommons.org/licenses/by/4.0/))
+</small>
+
+
+---
 ## Two Models
 <br/>
 * French Wikipedia <!-- .element: class="fragment" data-fragment-index="1" -->
     * 1.8 million articles, 750 million words
     * skip-gram model, 300 dimensions 
-* French 20th-century novel <!-- .element: class="fragment" data-fragment-index="2" -->
+* French 20th-century novels <!-- .element: class="fragment" data-fragment-index="2" -->
     * 1200 novels, 75 million words
     * skip-gram model, 300 dimensions
     * tokens: "lemma_pos"
 
---
-## Similarity
-<img src="img/figure-1_similarity2.png" height="600px">
 
-
---
+---
 ## Similar Words Query
 <br/>
+```
+Query: ['rouge_adj', ['_adj'], 20]
+------------  --------
+bleu_adj      0.716535
+jaune_adj     0.70717
+orange_adj    0.677171
+blanc_adj     0.652263
+violet_adj    0.627591
+rose_adj      0.587765
+vert_adj      0.586344
+écarlate_adj  0.581357
+foncé_adj     0.570509
+gris_adj      0.565617
+mauve_adj     0.562542
+brun_adj      0.556184
+------------  --------
+```
 (Wikipedia)
-```
-Query:   ['poésie_nom', 10]
-Result:  poétique_adj     0.841
-         poème_nom        0.790
-         prose_nom        0.733
-         littérature_nom  0.715
-         poète_nom        0.704
-         poétique_nom     0.701
-         poésie_nam       0.700
-         anthologie_nom   0.695
-         littéraire_adj   0.655
-         sonnet_nom       0.651
-```
 
---
-## Similarity Query
+
+---
+## Similar Words Query
 <br/>
+```
+Query: ['sens_nom', ['_nom'], 20]
+-----------------  --------
+acception_nom      0.624668
+signification_nom  0.586737
+connotation_nom    0.500503
+dénotation_nom     0.488691
+notion_nom         0.485397
+mot_nom            0.465419
+expression_nom     0.464914
+terme_nom          0.460238
+contresens_nom     0.444292
+logique_nom        0.443152
+définition_nom     0.441365
+étymologie_nom     0.439988
+métaphore_nom      0.434653
+compréhension_nom  0.434327
+-----------------  --------
+```
 (Wikipedia)
-```
-Query: ['prose_nom', 'littérature_nom']
-Result: 0.511518681366
 
-Query: ['poésie_nom', 'littérature_nom']
-Result: 0.714615326722
-```
 
---
+---
+## Word Similarity
+<br/>
+```
+Query: ['thé_nom', 'café_nom']
+Result: 0.6144038
+
+Query: ['pomme_nom', 'poire_nom']
+Result: 0.6585389
+
+Query: ['pomme_nom', 'café_nom']
+Result: 0.43146238
+
+Query: ['poire_nom', 'thé_nom']
+Result: 0.40406847
+```
+(Wikipedia)
+
+
+
+---
 ## Evaluation
 <br/>
 * Method: Using a "find-the-wrong word"-task <!-- .element: class="fragment" data-fragment-index="1" -->
 * Lists of similar words: <!-- .element: class="fragment" data-fragment-index="2" -->
     * vert, bleu, jaune, rouge, orange
-    * argent, billet, monnaie, portemonnaie, payement
+    * billet, monnaie, portemonnaie, paiement, prix
 * Generate lists with an error <!-- .element: class="fragment" data-fragment-index="3" -->
-    * vert, bleu, argent, jaune, rouge  
-
---
-## Results: accuracy
-<br/>
-* Wikipedia model: 90% accuracy
-* French novel model: 79.5% accuracy
+    * vert, bleu, monnaie, jaune, rouge  
 
 
 ---
-# Word Embeddings<br/>for Topic Modeling
+## Find odd one out
+<br/>
+```
+Query: ['vert', 'rouge', 'jaune', 'bleu', 'rapide']
+Result: rapide
+
+Query: ['vert', 'rouge', 'jaune', 'bleu', 'argent']
+Result: argent
+
+Query: ['avion', 'voyage', 'valise', 'vacances', 'maison']
+Result: maison
+```
+(Wikipedia)
+<br/>
+<br/>
+* Wikipedia model: 90% accuracy <!-- .element: class="fragment" data-fragment-index="1" -->
+* French novel model: 79.5% accuracy <!-- .element: class="fragment" data-fragment-index="1" -->
+
 
 --
+<br/>
+# Word Embeddings<br/>for Topic Modeling
+
+---
 ## Topic Modeling
 <a href="img/wordle_tp002.png"><img src="img/wordle_tp002.png" height="600px"></a>
 
---
+---
 ## Coherence Assessment: Mallet Diagnostics
 <img src="img/mallet.png" height="600px">
---
+
+---
 ## Coherence Assessment: Palmetto
 <img src="img/palmetto.png" height="600px">
 
---
+---
 ## Challenges
 <br/>
 * Mallet diagnostics are only intrinsic to the data
 * Palmetto requires you to build an adequate index
 
---
+---
 ## WEM-based coherence measure
 <a href="img/roman20_topic-coherences.svg"><img src="img/roman20_topic-coherences.svg" height="600px"></a>
 
 
---
+---
 ## Evaluation
 <br/>
 Correlation between WEM-based<br/> coherence and Mallet diagnostics<br/>
@@ -171,10 +335,11 @@ Correlation between WEM-based<br/> coherence and Mallet diagnostics<br/>
 <br/>
 <br/>http://mallet.cs.umass.edu/diagnostics.php
 
----
+--
+<br/>
 # Word Embeddings<br/>for Sentiment Analysis
 
---
+---
 ## Challenges 
 <br/>
 * An important branch of Sentiment Analysis<br/>requires an Emotion Lexicon <!-- .element: class="fragment" data-fragment-index="1" --> 
@@ -183,26 +348,26 @@ Correlation between WEM-based<br/> coherence and Mallet diagnostics<br/>
 * Combining WEM and Emotion Lexica could<br/> improve both resources <!-- .element: class="fragment" data-fragment-index="4" -->
 
 
---
+---
 ## Axes of meaning (Ryan Heuser)
 <img src="img/fig-abstract-1.jpg" height="500px">
 <br/>
 (concrete vs. abstract)
 
 
---
+---
 ## Axes of meaning (Ryan Heuser)
 <img src="img/fig-abstract-2.jpg" height="500px">
 <br/>
 (correlation with contemporary annotated data)
 
 
---
+---
 ## Axes of meaning
 <img src="img/axes-of-meaning2.png" height="600px">
 
 
---
+---
 ## Axis query
 <br/>
 (French novels)
@@ -217,17 +382,17 @@ Query:   monstre
 Result   -0.1407
 ```
 
---
+---
 ## Relation of words in semantic dimensions
 <a href="img/roman20_words-2dim_nom_labels.svg"><img src="img/roman20_words-2dim_nom_labels.svg" height="600px"></a>
 
 
---
+---
 ## Extend and adapt sentiment lexica
 <a href="img/figure-5_sentiments.png"><img src="img/figure-5_sentiments.png" height="600px"></a>
 
 
---
+---
 ## Workflow
 <br/>
 * Retrieve 2000 most frequent nouns from WEM <!-- .element: class="fragment" data-fragment-index="1" -->
@@ -237,7 +402,7 @@ Result   -0.1407
 * Use the 1842 nouns which have both a vector<br/> and a SWN score as training data <!-- .element: class="fragment" data-fragment-index="5" -->
 * Use a regression task to predict SWN scores<br/> for the 158 words <!-- .element: class="fragment" data-fragment-index="6" --> 
 
---
+---
 ## Newly-predicted (positive)
 <br/>
 * mérite	0.224
@@ -252,7 +417,7 @@ Result   -0.1407
 * envie	0.141
 * rire	0.137
 
---
+---
 ## Newly-predicted (negative)
 <br/>
 * fracas	0.294
@@ -268,10 +433,17 @@ Result   -0.1407
 * envie	0.146
 
 
---
+---
 ## Evaluation
 <br/>
 * Correlation between existing scores and <br/>the prediction for these same scores: 0.59
+
+
+
+
+--
+<br/>
+# Conclusion
 
 ---
 # Conclusion
