@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- CUSTOMIZE THIS! -->
-<title>Embedded Humanities</title>
+<title>Bloggen und Twitter in den Digital Humanities</title>
 <meta name="author" content="Christof Schöch">
 <!-- END -->
 <meta name="description" content="Slides">
@@ -30,311 +30,208 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <body>
 <div class="reveal">
 <div class="slides">
-<section data-markdown="" data-separator="^\n---\n" data-separator-vertical="^\n--\n" data-charset="utf-8">
+<section data-markdown="" data-separator="^\n---\n" data-separator-vertical="^\n--\n" data-charset="utf-8" data-background-image="img/basics/uni-trier-icon.png" data-background-size="50px" data-background-position="top 10px right 10px">
 <script type="text/template">
 
 <!-- THIS IS WHERE THE CONTENT GOES! -->
 <!-- Any section element inside of this container is displayed as a slide -->
 
-# Using Word Embeddings to Support Methods of Quantitative Text Analysis
-<hr/>
-<br/>
-Christof Schöch<br/>(Trier, Germany)
-<br/>
+##Outreach-Formate:<br/>Blogs und Micro-Blogs in den DH
 <br/>
 <hr/>
 <br/>
-Embedded Humanities Workshop<br/>(DARIAH TDA Working Group)<br/>DHd Conference, Cologne, February 2018
+Christof Schöch (Trier)
+<br/>https://dh.uni-trier.de/
 <br/>
 <br/>
-
----
-# Overview
+**Neue digitale Formate für die Forschung**
+<br/>**Allianz-AG 8, Bonn, 1. Okt. 2019**
 <br/>
-1. [Introduction](#/2)
-2. [Word Embeddings and Topic Coherence](#/3)
-3. [Word Embeddings for Sentiment Analysis](#/4)
-4. [Conclusion](#/5)
-
+<hr/>
+<br/>
+<img height="50" data-src="img/basics/uni-trier.png"></img>
 
 
 ---
-# Introduction
-
-
---
-## Basic idea
 <br/>
-* Word Embedding Models are cool!  <!-- .element: class="fragment" data-fragment-index="1" -->
-* How can they be useful for in Digital Humanities? <!-- .element: class="fragment" data-fragment-index="2" -->
-* More precisely: how can they be helpful <br/>for other exciting digital methods? <!-- .element: class="fragment" data-fragment-index="3" -->
-* Here: Topic Modeling and Sentiment Analysis <!-- .element: class="fragment" data-fragment-index="4" -->
-
---
-## Two Models
+##Blogs und Micro-Blogs in den DH
 <br/>
-* French Wikipedia <!-- .element: class="fragment" data-fragment-index="1" -->
-    * 1.8 million articles, 750 million words
-    * skip-gram model, 300 dimensions 
-* French 20th-century novel <!-- .element: class="fragment" data-fragment-index="2" -->
-    * 1200 novels, 75 million words
-    * skip-gram model, 300 dimensions
-    * tokens: "lemma_pos"
-
---
-## Similarity
-<img src="img/figure-1_similarity2.png" height="600px">
-
-
---
-## Similar Words Query
 <br/>
-(Wikipedia)
-```
-Query:   ['poésie_nom', 10]
-Result:  poétique_adj     0.841
-         poème_nom        0.790
-         prose_nom        0.733
-         littérature_nom  0.715
-         poète_nom        0.704
-         poétique_nom     0.701
-         poésie_nam       0.700
-         anthologie_nom   0.695
-         littéraire_adj   0.655
-         sonnet_nom       0.651
-```
+1. [Wissenschaftliches Bloggen](#/1)
+1. [Micro-Blogging: Twitter](#/2)
+
 
 --
-## Similarity Query
-<br/>
-(Wikipedia)
-```
-Query: ['prose_nom', 'littérature_nom']
-Result: 0.511518681366
-
-Query: ['poésie_nom', 'littérature_nom']
-Result: 0.714615326722
-```
+## Digital Humanities
+<a href="img/sahle.png"><img src="img/sahle.png" height="480" /></a>
+<br/>(Patrick Sahle 2015)
 
 --
-## Evaluation
+## Blogs und Twitter
+<a href="img/heatherfro.png"><img src="img/heatherfro.png" height="480" /></a>
+<br/>@heatherfro, 30.9.2019<br/>https://twitter.com/heatherfro/status/1178660507647139840
+
+---
 <br/>
-* Method: Using a "find-the-wrong word"-task <!-- .element: class="fragment" data-fragment-index="1" -->
-* Lists of similar words: <!-- .element: class="fragment" data-fragment-index="2" -->
-    * vert, bleu, jaune, rouge, orange
-    * argent, billet, monnaie, portemonnaie, payement
-* Generate lists with an error <!-- .element: class="fragment" data-fragment-index="3" -->
-    * vert, bleu, argent, jaune, rouge  
+<br/>
+# 1. Wissenschaftliches Bloggen
 
 --
-## Results: accuracy
+## Eigenschaften von Blogs
 <br/>
-* Wikipedia model: 90% accuracy
-* French novel model: 79.5% accuracy
+* frei zugänglich (aber: Lizenzfrage) <!-- .element: class="fragment" data-fragment-index="1" -->
+* schnell publiziert und aktualisiert (aber: Zitierbarkeit) <!-- .element: class="fragment" data-fragment-index="2" -->
+* Desintermediation (aber: Plattformeffekte, Redaktionen) <!-- .element: class="fragment" data-fragment-index="3" -->
+* kein peer-review (aber: Redaktionen, Kommentare, Aggregatoren) <!-- .element: class="fragment" data-fragment-index="4" -->
+* individuelle oder kollektive Blogs (Projektblogs, Themenblogs, Seminarblogs, etc.) <!-- .element: class="fragment" data-fragment-index="5" -->
+* aktualitätsbezogen: Veranstaltungen, Publikationen, Ideen, Interventionen <!-- .element: class="fragment" data-fragment-index="6" -->
+
+--
+## Funktionen wissenschaftlicher Blogs
+<br/>
+* Registrierungsfunktion: neue Ideen früh dokumentieren <!-- .element: class="fragment" data-fragment-index="2" -->
+* Feedbackfunktion: auf Probleme aufmerksam werden, bevor man ein Paper schreibt <!-- .element: class="fragment" data-fragment-index="3" -->      
+* Lernfunktion: publikumsorientiertes, wissenschaftliches Schreiben praktizieren <!-- .element: class="fragment" data-fragment-index="4" -->
+* Resonanzfunktion: Blogs (& Twitter) als "echo chamber" für formale Publikationen (Vernetzung) <!-- .element: class="fragment" data-fragment-index="5" -->
+* Identitätsprojektion: Blogs (& Twitter) für "digitalen Identität" <!-- .element: class="fragment" data-fragment-index="6" -->
+
+
+--
+## Verwandschaftsbeziehungen 
+<br/>
+1. Labortagebuch<br/>aber: informeller, öffentlich, unregelmäßiger <!-- .element: class="fragment" data-fragment-index="1" -->
+2. wissenschaftliche Artikel<br/>aber: kürzer, kleiner, schneller, persönlicher, dialogischer, kein peer review  <!-- .element: class="fragment" data-fragment-index="2" -->
+3. Austausch und Networking bei Konferenzen<br/>aber: schriftlich, orts- und zeitungebunden  <!-- .element: class="fragment" data-fragment-index="3" -->
+
+--
+## Stellenwert: Hecker-Stampehl 2013
+<br/>
+>"Knowledge sharing über Blogs ist indes momentan noch kein voll akzeptierter Baustein zum Aufbau sozialen Kapitals in der Wissenschaftslandschaft. Meine Prognose ist, dass ein eigener Fachblog oder die Beteiligung an einem wissenschaftlichen Gruppenblog über kurz oder lang für viele (nicht alle) zum Portfolio dazugehören wird."
+
+
+--
+## Legitimität durch Forschung
+<br/>
+<small>
+    
+* Torill Mortensen & Jill Rettberg Walker. 2002. "Blogging Thoughts. Personal Publication as an Online Research Tool. In: *Researching ICTs in Context*. 
+* Jill Walker Rettberg. 2008. *Blogging*. London: Polity. 
+* Sara Kjellberg. 2010. "I am a blogging researcher: motivations for blogging in a scholarly context". *First Monday* 15.8. https://firstmonday.org/article/view/2962/2580
+* Cornelius Puschmann & Merja Mahrt. "Scholarly Blogging: A New Form of Publishing or Science Journalism 2.0?". In: *Science and the Internet*, ed. A. Tokar et al., 171-181. Düsseldorf: Düsseldorf University Press. 
+* Peter Haber & Eva Pfanzelter, Hg. 2013. *historyblogosphere. Bloggen in der Geschichtswissenschaften*. Berlin: De Gruyter. https://www.degruyter.com/viewbooktoc/product/216968 
+* Mareike König. 2019. "Strategische Kommunikation: wie Geisteswissenschaftler*innen bloggen. Ergebnisse der Umfrage bei de.hypotheses". Redaktionsblog. https://redaktionsblog.hypotheses.org/4246
+
+</small>
+
+
+--
+## Legitimität durch Zahlen
+<br/>
+<a href="img/hermes1.png"><img src="img/hermes1.png" height="220" /></a>&nbsp;&nbsp;<a href="img/hermes2.png"><img src="img/hermes2.png" height="220" /></a>
+<br/>
+<br/>
+* Jürgen Hermes, https://texperimentales.hypotheses.org
+* Seitenzugriffe insgesamt: 350k in einem Jahr
+* Top-Post ("Hogwarts Analytica"): 31k Zugriffe
+
+--
+## Stellenwert: Verbreitung
+<a href="https://de.hypotheses.org"><img src="img/dehypo.png" height="180" /></a>&nbsp;&nbsp;<a href="https://dhd-blog.org"><img src="img/dhd-blog.png" height="180" /></a>
+<br/>
+<br/>
+* DHd-Blog: 1425 Posts in etwa 8 Jahren (15 / Monat)
+* Blog-Plattform: de.hypotheses.org: etwa 250 dt. Blogs (von 3100) 
+    
+--
+## Zitierbarkeit, Qualitätssicherung, Impact
+<a href="img/altmetrics.png"><img src="img/altmetrics.png" height="180" /></a>&nbsp;&nbsp;<a href="img/dhnow.png"><img src="img/dhnow.png" height="180" /></a>
+
+<br/>
+* Rolle in Altmetrics (bspw. Zenodo): Posts und Tweets! <!-- .element: class="fragment" data-fragment-index="1" -->
+* post-publication review: DH Now (selektiver Aggregator) <!-- .element: class="fragment" data-fragment-index="2" -->
+* de.hypotheses.org: Vergabe von ISSN, Archivierung durch die DNB <!-- .element: class="fragment" data-fragment-index="3" -->
+* Reputation: weiter Diskussionsthema <!-- .element: class="fragment" data-fragment-index="4" -->
+
+--
+## Stellenwert (persönlich) 
+<br/>
+* Meine ersten Schritte in den DH waren Blog-Posts: Sichtbarkeit, Einladungen <!-- .element: class="fragment" data-fragment-index="1" -->
+* mein meist-zitierter Artikel begann als Blog-Post<br/>(Vortrag, Blogpost, DHNow, Journal for Digital Humanities) <!-- .element: class="fragment" data-fragment-index="2" -->
+* Bloggen (und Twitter, Zotero, Github, Zenodo, Python) produzieren DH "street credibility"  <!-- .element: class="fragment" data-fragment-index="3" -->
+
+
+--
+## Entwicklungsbedarf
+<br/>
+* Versionierung und Archivierung stabiler Fassungen mit DOI (=> Zitierbarkeit) <!-- .element: class="fragment" data-fragment-index="1" -->
+* Etablierung erweiterter Publikationslisten: Blog(post)s, aber auch Datensätze, Software, Wikipedia-Artikel, etc. <!-- .element: class="fragment" data-fragment-index="2" -->
 
 
 ---
-# Word Embeddings<br/>for Topic Modeling
-
---
-## Topic Modeling
-<a href="img/wordle_tp002.png"><img src="img/wordle_tp002.png" height="600px"></a>
-
---
-## Coherence Assessment: Mallet Diagnostics
-<img src="img/mallet.png" height="600px">
---
-## Coherence Assessment: Palmetto
-<img src="img/palmetto.png" height="600px">
-
---
-## Challenges
-<br/>
-* Mallet diagnostics are only intrinsic to the data
-* Palmetto requires you to build an adequate index
-
---
-## WEM-based coherence measure
-<a href="img/roman20_topic-coherences.svg"><img src="img/roman20_topic-coherences.svg" height="600px"></a>
-
-
---
-## Evaluation
-<br/>
-Correlation between WEM-based<br/> coherence and Mallet diagnostics<br/>
-(Pearson's R, p-value)
 <br/>
 <br/>
-* mtuniformdist, 0.536, 9.22e-09
-* mtcoherence, -0.004, 0.970
-* mtexclusivity, 0.117, 0.246
+# 2. Micro-Blogging:<br/>Twitter
+
+--
+## Legitimation durch Wissenschaft
 <br/>
-<br/>http://mallet.cs.umass.edu/diagnostics.php
-
----
-# Word Embeddings<br/>for Sentiment Analysis
-
---
-## Challenges 
-<br/>
-* An important branch of Sentiment Analysis<br/>requires an Emotion Lexicon <!-- .element: class="fragment" data-fragment-index="1" --> 
-* These lexica usually have poor coverage<br/>(e.g. NRC: 14k words) <!-- .element: class="fragment" data-fragment-index="2" -->
-* Many of them also only provide ternary information<br/>(positive, negative, neutral) <!-- .element: class="fragment" data-fragment-index="3" -->
-* Combining WEM and Emotion Lexica could<br/> improve both resources <!-- .element: class="fragment" data-fragment-index="4" -->
-
-
---
-## Axes of meaning (Ryan Heuser)
-<img src="img/fig-abstract-1.jpg" height="500px">
-<br/>
-(concrete vs. abstract)
-
-
---
-## Axes of meaning (Ryan Heuser)
-<img src="img/fig-abstract-2.jpg" height="500px">
-<br/>
-(correlation with contemporary annotated data)
-
-
---
-## Axes of meaning
-<img src="img/axes-of-meaning2.png" height="600px">
-
-
---
-## Axis query
-<br/>
-(French novels)
-```
-Axis: [["bonheur", "joie"],          # positive
-       ["malheur", "tristesse"]]     # negative
-
-Query:   ange
-Result:  0.0875
-
-Query:   monstre
-Result   -0.1407
-```
-
---
-## Relation of words in semantic dimensions
-<a href="img/roman20_words-2dim_nom_labels.svg"><img src="img/roman20_words-2dim_nom_labels.svg" height="600px"></a>
-
-
---
-## Extend and adapt sentiment lexica
-<a href="img/figure-5_sentiments.png"><img src="img/figure-5_sentiments.png" height="600px"></a>
-
-
---
-## Workflow
-<br/>
-* Retrieve 2000 most frequent nouns from WEM <!-- .element: class="fragment" data-fragment-index="1" -->
-* Query SentiWordNet for the sentiment scores <!-- .element: class="fragment" data-fragment-index="2" -->
-* 158 out of 2000 (or 7.9%) don't have a score <!-- .element: class="fragment" data-fragment-index="3" -->
-* Retrieve the word vectors for each of the nouns <!-- .element: class="fragment" data-fragment-index="4" -->
-* Use the 1842 nouns which have both a vector<br/> and a SWN score as training data <!-- .element: class="fragment" data-fragment-index="5" -->
-* Use a regression task to predict SWN scores<br/> for the 158 words <!-- .element: class="fragment" data-fragment-index="6" --> 
-
---
-## Newly-predicted (positive)
-<br/>
-* mérite	0.224
-* ange	0.191
-* aise	0.168
-* sérieux	0.168
-* merci	0.163
-* savant	0.162
-* parler	0.157
-* seul	0.152
-* remplacé 0.150
-* envie	0.141
-* rire	0.137
-
---
-## Newly-predicted (negative)
-<br/>
-* fracas	0.294
-* injure	0.292
-* coupable	0.221
-* vertige	0.211
-* cesse	0.203
-* tel	0.180
-* blessé	0.157
-* suite	0.156
-* merci	0.153
-* mélange	0.149
-* envie	0.146
-
-
---
-## Evaluation
-<br/>
-* Correlation between existing scores and <br/>the prediction for these same scores: 0.59
-
----
-# Conclusion
-<br/>
-* (Hopefully) some promising perspectives
-* A lot more to do; suggestions for improvements?
-
-
-
---
-## References
-<br/>Thank you! 
-<br/>
-
 <small>
 
-* Blei, David M. „Probabilistic Topic Models“. Communications of the ACM 55, Nr. 4 (2012): 77. doi:10.1145/2133806.2133826.
-* Goldberg, Yoav, und Omer Levy. „word2vec Explained: deriving Mikolov et al.’s negative-sampling word-embedding method“. arXiv.org, 2014. http://arxiv.org/abs/1402.3722.
-Heuser, Ryan. „Word Vectors in the Eighteenth Century“. In Digital Humanities 2017: Conference Abstracts, 256–60. Montréal: McGill University & Université de Montréal, 2017.
-* Mikolov, Tomas, Kai Chen, Greg Corrado, und Jeffrey Dean. „Efficient Estimation of Word Representations in Vector Space“. arXiv.org, 2013. http://arxiv.org/abs/1301.3781.
-* Pennington, Jeffrey, Richard Socher, und Christopher D. Manning. „Glove: Global vectors for word representation“, 2014. doi:10.1.1.671.1743.
-* Turney, Peter T., und Patrick Pantel. „From Frequency to Meaning: Vector Space Models of Semantics“. Journal of Artificial Intelligence Research 37 (2010): 141–88. https://arxiv.org/abs/1003.1141.
-* Widdows, Dominic. Geometry and meaning. CSLI lecture notes, no. 172. Stanford CA: CSLI Publications, 2004.
-
-<p><br/>With special thanks to gensim, pygal and reveal.js</p>
-
+* Ross, Claire, Melissa Terras, and A. Welsh. “Enabled Backchannel: Conference Twitter Use by Digital Humanists.” Journal of Documentation 67, no. 2 (2011): 214–37.
+* Quan-Haase, Anabel, Kim Martin, and Lori McCay-Peet. “Networks of Digital Humanities Scholars: The Informational and Social Uses and Gratifications of Twitter.” Big Data & Society 2, no. 1 (June 10, 2015): 205395171558941. https://doi.org/10.1177/2053951715589417.
+* Grandjean, Martin. “A Social Network Analysis of Twitter: Mapping the Digital Humanities Community.” Edited by Aaron Mauro. Cogent Arts & Humanities 3, no. 1 (April 15, 2016). https://doi.org/10.1080/23311983.2016.1171458.
+* Jin Gao. 2018. "Visualising The Digital Humanities Community: A Comparison Study Between Citation Network And Social Network". *Digital Humanities Conference 2018*, Mexico City. https://dh2018.adho.org/en/visualising-the-digital-humanities-community-a-comparison-study-between-citation-network-and-social-network/
 
 </small>
 
 --
+## Legitimation durch Zahlen: Twitterverse
+<a href="img/grandjean1.png"><img src="img/grandjean1.png" height="180"></a>&nbsp;&nbsp;<a href="img/grandjean2.png"><img src="img/grandjean2.png" height="180"></a>&nbsp;&nbsp;<a href="img/gao1.png"><img src="img/gao1.png" height="180"></a>
+* DH-Accounts: 2015: 2500 Accounts (Grandjean); 2018: 3160 Accounts (Gao) <!-- .element: class="fragment" data-fragment-index="1" --> 
+* Konferenzen: DH2018: 2329 Accounts, DH2019: 2157 Accounts (Priego 2019) <!-- .element: class="fragment" data-fragment-index="2" -->
+* Followerpower: @dancohen 19k, @melissaterras 16.8k, @nowviskie 13.5k <!-- .element: class="fragment" data-fragment-index="3" -->
+
+
+--
+## Stellenwert: Hecker-Stampehl (2013)
 <br/>
+>"Die Kürze eines Tweets oder eines Postings in Facebook, Google+ etc. reicht für eine ausführlichere Auseinandersetzung mit Inhalten kaum aus. Die unter internetaffinen Wissenschaftlern zunehmend beliebte Plattform Twitter dient als Verweismedium jedoch dazu, auf Blogbeiträge aufmerksam zu machen und Diskussionen anzustoßen."
+
+--
+## Stellenwert (persönlich)
 <br/>
-## Thank you!
+* Wichtige Quelle neuester Informationen:<br/>Publikationen, Stellen, Stellenbesetzungen, Events, Calls
+* Kontakte für Vorträge, Publikationen, etc.
+* in Würzburg haben wir eine Stelle über Twitter besetzt
+* Trennung professioneller und privater Account notwendig
+* Mehrsprachigkeit als Herausforderung (de, en, fr, es)
+
+
+--
+## Twitter-Bedarfe
 <br/>
-<br/>
-<br/>
-<br/>
-<hr/>
-<p>Christof Schöch, 2017</p>
-<p><a href="https://christofs.github.io/">christofs.github.io</a></p>
-<p><a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a><br/></p>
-<hr/>
-<br/>
-<br/>
+* Kontinuierlich aktualisiertes, frei zugängliches Twitter-Archiv des DH-Twitterverse
+* Dadurch Zitierfähigkeit sicherstellen und Forschung ermöglichen
 
 ---
-# Bonus slides
-
---
-## CBOW Model
-<a href="img/cbow-model.png"><img src="img/cbow-model.png" height="600px"></a>
-
---
-## Projection
-<a href="img/tsne-plot_topn-nom-5800_some-labels.svg"><img src="img/tsne-plot_topn-nom-5800_some-labels.svg" height="600px"></a>
-
---
-## Comparing models (novels vs. Wikipedia)
-<a href="img/figure-6_sens17.png"><img src="img/figure-6_sens17.png" height="600px"></a>
-
-
-
-
+<br/>
+<br/>
+<br/>
+## Danke!
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<hr/>
+Christof Schöch, 2019
+<br/><a href="https://christofs.github.io/">christofs.github.io</a>
+<br/><a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a>
+<hr/>
+<br/>
+<br/>
 </script>
 </section>
 
@@ -350,7 +247,6 @@ Heuser, Ryan. „Word Vectors in the Eighteenth Century“. In Digital Humanitie
 Reveal.initialize({
     controls: true,
     progress: true,
-    slideNumber: true,
     history: true,
     center: true,
     transition: 'slide', // none/fade/slide/convex/concave/zoom
