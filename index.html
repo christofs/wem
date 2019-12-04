@@ -66,9 +66,31 @@ Digital History and Hermeneutics Lecture Series, University of Luxemburg, Decemb
 <br/>
 # Introduction
 
+---
+## You may have seen this
+<img height="500" data-src="img/w2v-cities.png">
+<br/><small>
+(Mikolov et al. 2013)
+</small>
 
 ---
-## Basic idea
+## Or this
+<img height="500" data-src="img/w2v-composition.png">
+<br/><small>
+(Mikolov et al. 2013)
+</small>
+
+---
+## Or maybe this
+<img height="500" data-src="img/w2v_hamilton.png">
+<br/><small>
+(Hamilton, Leskovec, Jurafsky 2015)
+</small>
+
+
+
+---
+## Basic idea today
 <br/>
 * Word Embedding Models are cool, but... <br/><br/> <!-- .element: class="fragment" data-fragment-index="1" -->
 * How do they actually work? <!-- .element: class="fragment" data-fragment-index="2" -->
@@ -141,21 +163,21 @@ Digital History and Hermeneutics Lecture Series, University of Luxemburg, Decemb
 
 
 ---
-## Closeness ~ similarity
+## Closeness ≈ similarity
 <img height="500" data-src="img/fruit-vegs.png">
 <small>
 (Artificial data. Image credit: Christof Schöch, 2019, [CC BY 4.0 Int'l](https://creativecommons.org/licenses/by/4.0/))
 </small>
 
 ---
-## Distance ~ dissimilarity
+## Distance ≈ dissimilarity
 <img height="500" data-src="img/polarity.png">
 <small>
 (Artificial data. Image credit: Christof Schöch, 2019, [CC BY 4.0 Int'l](https://creativecommons.org/licenses/by/4.0/))
 </small>
 
 ---
-## Directionality ~ relations
+## Directionality ≈ relations
 <img height="500" data-src="img/analogy.png">
 <small>
 (Artificial data. Image credit: Christof Schöch, 2019, [CC BY 4.0 Int'l](https://creativecommons.org/licenses/by/4.0/))
@@ -172,14 +194,17 @@ Digital History and Hermeneutics Lecture Series, University of Luxemburg, Decemb
 ## Large amounts of text
 <br/>
 * A very large newstext archive 
-* All of Wikipedia
+* All of Wikipedia 
 * All of reddit
+* All of ECCO/EBBO
+* 1000 novels
 
 
 ---
 ## Model Training Architecture
 <a href="img/cbow.png"><img height="500" data-src="img/cbow.png"></a>
 <small>
+Example for the input "lazy panda bear"<br/>
 (CBOW architecture. Image credit: Christof Schöch, 2019, [CC BY 4.0 Int'l](https://creativecommons.org/licenses/by/4.0/))
 </small>
 
@@ -189,11 +214,19 @@ Digital History and Hermeneutics Lecture Series, University of Luxemburg, Decemb
 <br/>
 * French Wikipedia <!-- .element: class="fragment" data-fragment-index="1" -->
     * 1.8 million articles, 750 million words
-    * skip-gram model, 300 dimensions 
+    * skip-gram model, 300 dimensions<br/><br/> 
 * French 20th-century novels <!-- .element: class="fragment" data-fragment-index="2" -->
     * 1200 novels, 75 million words
     * skip-gram model, 300 dimensions
     * tokens: "lemma_pos"
+
+
+
+
+---
+## Wikipedia Model, visualized
+<a href="img/tsne-plot_topn-nom-5800_some-labels.svg"><img height="500" data-src="img/tsne-plot_topn-nom-5800_some-labels.svg"></a>
+
 
 
 ---
@@ -349,6 +382,11 @@ Correlation between WEM-based<br/> coherence and Mallet diagnostics<br/>
 
 
 ---
+## Remember? polarity
+<img src="img/polarity.png" height="550px">
+
+
+---
 ## Axes of meaning (Ryan Heuser)
 <img src="img/fig-abstract-1.jpg" height="500px">
 <br/>
@@ -356,15 +394,9 @@ Correlation between WEM-based<br/> coherence and Mallet diagnostics<br/>
 
 
 ---
-## Axes of meaning (Ryan Heuser)
-<img src="img/fig-abstract-2.jpg" height="500px">
-<br/>
-(correlation with contemporary annotated data)
+## Relation of words in semantic dimensions
+<a href="img/roman20_words-2dim_nom_labels.svg"><img src="img/roman20_words-2dim_nom_labels.svg" height="550px"></a>
 
-
----
-## Axes of meaning
-<img src="img/axes-of-meaning2.png" height="600px">
 
 
 ---
@@ -381,10 +413,6 @@ Result:  0.0875
 Query:   monstre
 Result   -0.1407
 ```
-
----
-## Relation of words in semantic dimensions
-<a href="img/roman20_words-2dim_nom_labels.svg"><img src="img/roman20_words-2dim_nom_labels.svg" height="600px"></a>
 
 
 ---
@@ -404,33 +432,44 @@ Result   -0.1407
 
 ---
 ## Newly-predicted (positive)
-<br/>
-* mérite	0.224
-* ange	0.191
-* aise	0.168
-* sérieux	0.168
-* merci	0.163
-* savant	0.162
-* parler	0.157
-* seul	0.152
-* remplacé 0.150
-* envie	0.141
-* rire	0.137
+<small>
+
+| word        | score |
+|-------------|-------|
+| mérite | 0.224 |
+| ange | 0.191 |
+| aise | 0.168 |
+| sérieux | 0.168 |
+| merci | 0.163 |
+| savant | 0.162 |
+| parler | 0.157 |
+| seul | 0.152 |
+| remplacé | 0.150 |
+| envie | 0.141 |
+| rire | 0.137 |
+
+</small>
+
 
 ---
 ## Newly-predicted (negative)
-<br/>
-* fracas	0.294
-* injure	0.292
-* coupable	0.221
-* vertige	0.211
-* cesse	0.203
-* tel	0.180
-* blessé	0.157
-* suite	0.156
-* merci	0.153
-* mélange	0.149
-* envie	0.146
+<small>
+
+| word        | score |
+|-------------|-------|
+| fracas | -0.294 |
+| injure | -0.292 |
+| coupable | -0.221 |
+| vertige | -0.211 |
+| cesse | -0.203 |
+| tel | -0.180 |
+| blessé | -0.157 |
+| suite | -0.156 |
+| merci | -0.153 |
+| mélange | -0.149 |
+| envie | -0.146 |
+
+</small>
 
 
 ---
@@ -446,27 +485,41 @@ Result   -0.1407
 # Conclusion
 
 ---
-# Conclusion
+## I hope to have given...
 <br/>
-* (Hopefully) some promising perspectives
-* A lot more to do; suggestions for improvements?
+* Some insight or intuition into how WE work <!-- .element: class="fragment" data-fragment-index="1" -->
+    * How to create them
+    * How to query them 
+* Some illustration of what they are useful for in DH <!-- .element: class="fragment" data-fragment-index="2" -->
+    * For Topic Modeling
+    * For Sentiment Analysis
+* Maybe also some limitations:<br/> no understanding quite yet <!-- .element: class="fragment" data-fragment-index="3" -->
 
+---
+## There are a lot more applications
+<br/>
+* Dozens of applications in CL and IR <!-- .element: class="fragment" data-fragment-index="1" -->
+* Many more applications in DH <!-- .element: class="fragment" data-fragment-index="2" -->
+    * Correction of OCR (fill in uncertain words) <!-- .element: class="fragment" data-fragment-index="3" -->
+    * Sentence alignment for parallel texts <!-- .element: class="fragment" data-fragment-index="4" -->
+    * Text Reuse detection <!-- .element: class="fragment" data-fragment-index="5" -->
+    * History of ideas  <!-- .element: class="fragment" data-fragment-index="6" -->
+    * ... <!-- .element: class="fragment" data-fragment-index="6" -->
 
 
 --
-## References
-<br/>Thank you! 
-<br/>
-
+## Thank you! 
+<br/>References
 <small>
 
-* Blei, David M. „Probabilistic Topic Models“. Communications of the ACM 55, Nr. 4 (2012): 77. doi:10.1145/2133806.2133826.
-* Goldberg, Yoav, und Omer Levy. „word2vec Explained: deriving Mikolov et al.’s negative-sampling word-embedding method“. arXiv.org, 2014. http://arxiv.org/abs/1402.3722.
-Heuser, Ryan. „Word Vectors in the Eighteenth Century“. In Digital Humanities 2017: Conference Abstracts, 256–60. Montréal: McGill University & Université de Montréal, 2017.
-* Mikolov, Tomas, Kai Chen, Greg Corrado, und Jeffrey Dean. „Efficient Estimation of Word Representations in Vector Space“. arXiv.org, 2013. http://arxiv.org/abs/1301.3781.
+* Goldberg, Yoav, und Omer Levy. „word2vec Explained: deriving Mikolov et al.’s negative-sampling word-embedding method“. *arXiv.org*, 2014. http://arxiv.org/abs/1402.3722.
+* Heuser, Ryan. „Word Vectors in the Eighteenth Century“. *Digital Humanities 2017: Conference Abstracts*, 256–60. Montréal: McGill University & Université de Montréal, 2017.
+* Mikolov, Tomas, Kai Chen, Greg Corrado, und Jeffrey Dean. „Efficient Estimation of Word Representations in Vector Space“. *arXiv.org*, 2013. http://arxiv.org/abs/1301.3781.
 * Pennington, Jeffrey, Richard Socher, und Christopher D. Manning. „Glove: Global vectors for word representation“, 2014. doi:10.1.1.671.1743.
-* Turney, Peter T., und Patrick Pantel. „From Frequency to Meaning: Vector Space Models of Semantics“. Journal of Artificial Intelligence Research 37 (2010): 141–88. https://arxiv.org/abs/1003.1141.
-* Widdows, Dominic. Geometry and meaning. CSLI lecture notes, no. 172. Stanford CA: CSLI Publications, 2004.
+* Schöch, Christof (im Druck). „Quantitative Semantik: Word Embedding Models für literaturwissenschaftliche Fragestellungen“, in: *Digitale Literaturwissenschaft*, ed. Fotis Jannidis.
+Stuttgart: Metzler / Springer.
+* Turney, Peter T., und Patrick Pantel. „From Frequency to Meaning: Vector Space Models of Semantics“. *Journal of Artificial Intelligence Research* 37 (2010): 141–88. https://arxiv.org/abs/1003.1141.
+* Widdows, Dominic. *Geometry and Meaning*. Stanford CA: CSLI Publications, 2004.
 
 <p><br/>With special thanks to gensim, pygal and reveal.js</p>
 
@@ -482,7 +535,7 @@ Heuser, Ryan. „Word Vectors in the Eighteenth Century“. In Digital Humanitie
 <br/>
 <br/>
 <hr/>
-<p>Christof Schöch, 2017</p>
+<p>Christof Schöch, 2019</p>
 <p><a href="https://christofs.github.io/">christofs.github.io</a></p>
 <p><a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a><br/></p>
 <hr/>
