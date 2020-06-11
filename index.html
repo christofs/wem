@@ -150,9 +150,9 @@ slides: https://christofs.github.io/wem/
 
 ---
 ## Information Retrieval: Vector Space Model
-<img src="img/vectorspace.jpg" height="550px">
+<img src="img/vectorspace.jpg" height="500px">
 <br/>
-<small>(Originally: Gerald Salton et al. (1975). Image Credit: Riclas, Wikipedia, [Creative Commons Atttribution 3.0](https://commons.wikimedia.org/w/index.php?curid=9076846))</small>
+<small>d1, d2: two documents; q = query. <br/><br/>(Originally: Gerald Salton et al. (1975). Image Credit: Riclas, Wikipedia, [Creative Commons Atttribution 3.0](https://commons.wikimedia.org/w/index.php?curid=9076846))</small>
 
 
 ---
@@ -162,28 +162,28 @@ slides: https://christofs.github.io/wem/
 * Each word is assigned a vector
 * Closeness denotes semantic similarity
 * Relations are expressed by directionality
-<p><img src="img/widdows.jpg" height="250px"></p>
+<p style="text-align:center"><img src="img/widdows.jpg" height="250px"></p>
 
 
 ---
 ## Closeness ≈ similarity
 <img height="500" data-src="img/fruit-vegs.png">
 <small>
-(Artificial data. Image credit: Christof Schöch, 2019, [CC BY 4.0 Int'l](https://creativecommons.org/licenses/by/4.0/))
+(Artificial data. Image: Christof Schöch, 2019, [CC BY 4.0 Int'l](https://creativecommons.org/licenses/by/4.0/))
 </small>
 
 ---
 ## Distance ≈ dissimilarity
 <img height="500" data-src="img/polarity.png">
 <small>
-(Artificial data. Image credit: Christof Schöch, 2019, [CC BY 4.0 Int'l](https://creativecommons.org/licenses/by/4.0/))
+(Artificial data. Image: Christof Schöch, 2019, [CC BY 4.0 Int'l](https://creativecommons.org/licenses/by/4.0/))
 </small>
 
 ---
 ## Directionality ≈ relations
 <img height="500" data-src="img/analogy.png">
 <small>
-(Artificial data. Image credit: Christof Schöch, 2019, [CC BY 4.0 Int'l](https://creativecommons.org/licenses/by/4.0/))
+(Artificial data. Image: Christof Schöch, 2019, [CC BY 4.0 Int'l](https://creativecommons.org/licenses/by/4.0/))
 </small>
 
 
@@ -208,7 +208,7 @@ slides: https://christofs.github.io/wem/
 <a href="img/cbow.png"><img height="500" data-src="img/cbow.png"></a>
 <small>
 Example for the input "lazy panda bear"<br/>
-(CBOW architecture. Image credit: Christof Schöch, 2019, [CC BY 4.0 Int'l](https://creativecommons.org/licenses/by/4.0/))
+(CBOW architecture. Image: Christof Schöch, 2019, [CC BY 4.0 Int'l](https://creativecommons.org/licenses/by/4.0/))
 </small>
 
 
@@ -217,7 +217,8 @@ Example for the input "lazy panda bear"<br/>
 <br/>
 * French Wikipedia <!-- .element: class="fragment" data-fragment-index="1" -->
     * 1.8 million articles, 750 million words
-    * skip-gram model, 300 dimensions<br/><br/> 
+    * skip-gram model, 300 dimensions
+    * tokens: "lemma_pos"<br/><br/> 
 * French 20th-century novels <!-- .element: class="fragment" data-fragment-index="2" -->
     * 1200 novels, 75 million words
     * skip-gram model, 300 dimensions
@@ -229,6 +230,7 @@ Example for the input "lazy panda bear"<br/>
 ---
 ## Wikipedia Model, visualized
 <a href="img/tsne-plot_topn-nom-5800_some-labels.svg"><img height="500" data-src="img/tsne-plot_topn-nom-5800_some-labels.svg"></a>
+<br/><small>(tSNE-projection to two dimensions)</small>
 
 
 
@@ -252,7 +254,8 @@ mauve_adj     0.562542
 brun_adj      0.556184
 ------------  --------
 ```
-(Wikipedia)
+<br/>
+(Wikipedia model)
 
 
 ---
@@ -277,7 +280,8 @@ métaphore_nom      0.434653
 compréhension_nom  0.434327
 -----------------  --------
 ```
-(Wikipedia)
+<br/>
+(Wikipedia model)
 
 
 ---
@@ -296,7 +300,8 @@ Result: 0.43146238
 Query: ['poire_nom', 'thé_nom']
 Result: 0.40406847
 ```
-(Wikipedia)
+<br/>
+(Wikipedia model)
 
 
 
@@ -488,6 +493,16 @@ Result   -0.1407
 # Conclusion
 
 ---
+## There are a lot more applications in DH
+<br/>
+* Correction of OCR (fill in uncertain words) <!-- .element: class="fragment" data-fragment-index="1" -->
+* Sentence alignment for multilingual parallel texts <!-- .element: class="fragment" data-fragment-index="2" -->
+* Semantic Text Reuse detection <!-- .element: class="fragment" data-fragment-index="3" -->
+* Comparative conceptual maps (genres) <!-- .element: class="fragment" data-fragment-index="4" -->
+* History of ideas (periods)  <!-- .element: class="fragment" data-fragment-index="5" -->
+* ... <!-- .element: class="fragment" data-fragment-index="6" -->
+
+---
 ## I hope to have given...
 <br/>
 * Some insight or intuition into how WE work <!-- .element: class="fragment" data-fragment-index="1" -->
@@ -496,20 +511,12 @@ Result   -0.1407
 * Some illustration of what they are useful for in DH <!-- .element: class="fragment" data-fragment-index="2" -->
     * For Topic Modeling
     * For Sentiment Analysis
-* Maybe also some limitations:<br/> no understanding quite yet <!-- .element: class="fragment" data-fragment-index="3" -->
+* But of course:<br/> WE don't replace human understanding quite yet <!-- .element: class="fragment" data-fragment-index="3" -->
+
 
 ---
-## There are a lot more applications
+## Time for your questions!
 <br/>
-* Dozens of applications in CL and IR <!-- .element: class="fragment" data-fragment-index="1" -->
-* Many more applications in DH <!-- .element: class="fragment" data-fragment-index="2" -->
-    * Correction of OCR (fill in uncertain words) <!-- .element: class="fragment" data-fragment-index="3" -->
-    * Sentence alignment for parallel texts <!-- .element: class="fragment" data-fragment-index="4" -->
-    * Text Reuse detection <!-- .element: class="fragment" data-fragment-index="5" -->
-    * Comparative conceptual maps (genres) <!-- .element: class="fragment" data-fragment-index="6" -->
-    * History of ideas (periods)  <!-- .element: class="fragment" data-fragment-index="7" -->
-    * ... <!-- .element: class="fragment" data-fragment-index="7" -->
-
 
 --
 ## Thank you! 
