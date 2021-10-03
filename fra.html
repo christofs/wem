@@ -136,7 +136,7 @@ Christof Schöch<br/>(Trier, Allemagne)
 ## Qu'est que cela nous dit ? 
 <br/>
 * Les mots sont acceptables, plus ou moins, sémantiquement et syntaxiquement <!-- .element: class="fragment" data-fragment-index="1" -->
-* Nous sommes en mesure d'estimer le degré de probabilité de chaque mot, étant donné le context <!-- .element: class="fragment" data-fragment-index="2" -->
+* Nous sommes en mesure d'estimer le degré de probabilité de chaque mot, étant donné le contexte <!-- .element: class="fragment" data-fragment-index="2" -->
 * Pour cela, nous utilisons notre compétence linguistique, et notre savoir encyclopédique <!-- .element: class="fragment" data-fragment-index="3" -->
 * Les ordinateurs peuvent apprendre ces probabilités à travers les corpus géants <!-- .element: class="fragment" data-fragment-index="4" -->
 * La sémantique distributionnelle quantitative, c'est cela <!-- .element: class="fragment" data-fragment-index="5" -->
@@ -221,6 +221,22 @@ Exemple pour "lazy panda bear"<br/>
 (CBOW architecture. Image: Christof Schöch, 2019, [CC BY 4.0 Int'l](https://creativecommons.org/licenses/by/4.0/))
 </small>
 
+
+---
+## Résultat
+<br/> 
+<small>
+
+|mot|1|2|3|4|5|6|...|300|
+|:--------|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
+|...|||||||||
+|panama|0.3575|-0.2444|0.1243|-0.8276|0.8761|-0.1256||0.2398|
+|panda|0.3298|0.8542|-0.2403|-0.5270|-0.5273|0.7528||0.2452|
+|pantalon|-0.9563|-0.4298|0.20387|-0.8956|-0.0193|0.4289||-0.8732|
+|...|||||||||
+||||||||||
+
+</small>
 
 ---
 ## Deux modèles
@@ -355,14 +371,32 @@ Result: 0.079326905
 ---
 ## Quelques applications en CLS
 <br/>
-* History of ideas (Ryan Heuser)  <!-- .element: class="fragment" data-fragment-index="1" -->
-* Comparative conceptual maps (e.g. Wikipédia vs. roman) <!-- .element: class="fragment" data-fragment-index="2" -->
-* Semantic Text Reuse detection <!-- .element: class="fragment" data-fragment-index="3" -->
-* Correction of OCR (fill in uncertain words) <!-- .element: class="fragment" data-fragment-index="4" -->
-* Sentence alignment for multilingual parallel texts <!-- .element: class="fragment" data-fragment-index="5" -->
+* Histoire des idées (Ryan Heuser)  <!-- .element: class="fragment" data-fragment-index="1" -->
+* Cartes conceptuels comparatives (e.g. Wikipédia vs. roman) <!-- .element: class="fragment" data-fragment-index="2" -->
+* Identifiction du 'Semantic Text Reuse' <!-- .element: class="fragment" data-fragment-index="3" -->
+* Correction des résultats de la ROC (remplir les mots incertains) <!-- .element: class="fragment" data-fragment-index="4" -->
+* Détection de phrases similaires (Romantikerbriefe) <!-- .element: class="fragment" data-fragment-index="5" -->
 * Identification du discours direct <!-- .element: class="fragment" data-fragment-index="6" -->
-* ... <!-- .element: class="fragment" data-fragment-index="7" -->
+* Édition critique : quantifier le degré de modification sémantique d'une nouvelle version d'un texte <!-- .element: class="fragment" data-fragment-index="7" -->
+* ... <!-- .element: class="fragment" data-fragment-index="8" -->
 
+
+---
+## Principe: ML avec WEM
+* Exemple: Identification du discours direct  <!-- .element: class="fragment" data-fragment-index="1" -->
+* Tâche de classification, apprentissage à travers les exemples  <!-- .element: class="fragment" data-fragment-index="2" -->
+* Données  <!-- .element: class="fragment" data-fragment-index="3" -->
+	* Ma femme, es-tu prête ? ; direct
+	* Il disparut ; narration
+* Sans WEM: annotation linguistique pour enrichir la représenation des exemples   <!-- .element: class="fragment" data-fragment-index="4" -->
+* Avec WEM: vecteurs similaires permettent de mieux généraliser  <!-- .element: class="fragment" data-fragment-index="5" -->
+
+
+---
+## Applications dans MetaLex
+<br/>
+* Modèles mono-lingues : pour quantifier la différence entre plusieurs versions d'une phrase
+* Modèles multi-lingues : pour l'alignement des phrases à travers les langues
 
 
 
@@ -372,23 +406,12 @@ Result: 0.079326905
 
 
 ---
-## I hope to have given...
+## J'espère avoir 
 <br/>
-* Some insight or intuition into how WE work <!-- .element: class="fragment" data-fragment-index="1" -->
-    * How to create them
-    * How to query them 
-* Some illustration of what they are useful for in DH <!-- .element: class="fragment" data-fragment-index="2" -->
-    * For Topic Modeling
-    * For Sentiment Analysis
-* But of course:<br/> WE don't replace human understanding quite yet <!-- .element: class="fragment" data-fragment-index="3" -->
+* donné une intuition de la manière dont les word embeddings fonctionnentSome insight or intuition into how WE work <!-- .element: class="fragment" data-fragment-index="1" -->
+* donné des pistes pour une application dans MétaLex <!-- .element: class="fragment" data-fragment-index="2" -->
 
 
----
-## Time for your questions!
-<br/>
-<br/>
-<br/>
-https://quotidien.framapad.org/p/zurich
 
 --
 ## Thank you! 
@@ -400,7 +423,7 @@ https://quotidien.framapad.org/p/zurich
 * Mikolov, Tomas, Kai Chen, Greg Corrado, und Jeffrey Dean. „Efficient Estimation of Word Representations in Vector Space“. *arXiv.org*, 2013. http://arxiv.org/abs/1301.3781.
 * Pennington, Jeffrey, Richard Socher, und Christopher D. Manning. „Glove: Global vectors for word representation“, 2014. doi:10.1.1.671.1743.
 * Schöch, Christof (im Druck). „Quantitative Semantik: Word Embedding Models für literaturwissenschaftliche Fragestellungen“, in: *Digitale Literaturwissenschaft*, ed. Fotis Jannidis.
-Stuttgart: Metzler / Springer.
+Stuttgart: Metzler.
 * Turney, Peter T., und Patrick Pantel. „From Frequency to Meaning: Vector Space Models of Semantics“. *Journal of Artificial Intelligence Research* 37 (2010): 141–88. https://arxiv.org/abs/1003.1141.
 * Widdows, Dominic. *Geometry and Meaning*. Stanford CA: CSLI Publications, 2004.
 
