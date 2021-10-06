@@ -54,12 +54,10 @@ Christof Schöch<br/>(Trier, Allemagne)
 # Plan
 <br/>
 1. [Introduction](#/2)
-1. [Qu'est-ce que c'est que les 'Word Embedding Models' ?](#/3)
-1. [Comment produit-on des 'Word Embedding Models' ?](#/4)
-2. [Application 1 : cohérence sémantique](#/5)
-3. [Application 2 : analyse de sentiment](#/6)
-3. [Application 3 : identifier le discours direct](#/7)
-4. [Conclusion](#/8)
+1. [Qu'est-ce que c'est que les<br/> 'Word Embedding Models' ?](#/3)
+1. [Comment produit-on les WEM ?](#/4)
+2. [Applications](#/5)
+4. [Conclusion](#/6)
 
 
 
@@ -96,9 +94,7 @@ Christof Schöch<br/>(Trier, Allemagne)
 * Les 'Word Embedding Models', c'est cool, mais... <br/><br/> <!-- .element: class="fragment" data-fragment-index="1" -->
 * Comment cela fonctionne-t-il ? <!-- .element: class="fragment" data-fragment-index="2" -->
 * Est-ce vraiment utile pour les humanités numériques ? <!-- .element: class="fragment" data-fragment-index="3" -->
-    * De manière intégrée à d'autres méthodes <!-- .element: class="fragment" data-fragment-index="4" -->
-    * Comme méthode en tant que telle <!-- .element: class="fragment" data-fragment-index="5" -->
-* Dans quelle mesure les WEM nous aident à comprendre les textes ? <!-- .element: class="fragment" data-fragment-index="6" -->
+* En quoi cela peut-il nous aider dans MétaLex ? <!-- .element: class="fragment" data-fragment-index="6" -->
 
 
 --
@@ -366,18 +362,18 @@ Result: 0.079326905
 
 --
 <br/>
-## Domaines d'application
+# Domaines d'application
 
 ---
 ## Quelques applications en CLS
 <br/>
 * Histoire des idées (Ryan Heuser)  <!-- .element: class="fragment" data-fragment-index="1" -->
-* Cartes conceptuels comparatives (e.g. Wikipédia vs. roman) <!-- .element: class="fragment" data-fragment-index="2" -->
+* Cartes conceptuels comparatives<br/>(e.g. Wikipédia vs. roman) <!-- .element: class="fragment" data-fragment-index="2" -->
 * Identifiction du 'Semantic Text Reuse' <!-- .element: class="fragment" data-fragment-index="3" -->
-* Correction des résultats de la ROC (remplir les mots incertains) <!-- .element: class="fragment" data-fragment-index="4" -->
+* Correction des résultats de la ROC <!-- .element: class="fragment" data-fragment-index="4" -->
 * Détection de phrases similaires (Romantikerbriefe) <!-- .element: class="fragment" data-fragment-index="5" -->
 * Identification du discours direct <!-- .element: class="fragment" data-fragment-index="6" -->
-* Édition critique : quantifier le degré de modification sémantique d'une nouvelle version d'un texte <!-- .element: class="fragment" data-fragment-index="7" -->
+* Édition critique / génétique : degré de modification sémantique introduit par une variante <!-- .element: class="fragment" data-fragment-index="7" -->
 * ... <!-- .element: class="fragment" data-fragment-index="8" -->
 
 
@@ -388,8 +384,9 @@ Result: 0.079326905
 * Données  <!-- .element: class="fragment" data-fragment-index="3" -->
 	* Ma femme, es-tu prête ? ; direct
 	* Il disparut ; narration
-* Sans WEM: annotation linguistique pour enrichir la représenation des exemples   <!-- .element: class="fragment" data-fragment-index="4" -->
-* Avec WEM: vecteurs similaires permettent de mieux généraliser  <!-- .element: class="fragment" data-fragment-index="5" -->
+* Au coeur de l'apprentissage, la généralisation à partir des exemples <!-- .element: class="fragment" data-fragment-index="4" -->
+* Sans WEM: annotation linguistique pour enrichir la représentation des exemples   <!-- .element: class="fragment" data-fragment-index="5" -->
+* Avec WEM: mieux généraliser à partir des vecteurs similaires de mots  <!-- .element: class="fragment" data-fragment-index="6" -->
 
 
 ---
